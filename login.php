@@ -7,7 +7,7 @@ if(isset($_POST['login']))
   {
     $emailcon=$_POST['emailcont'];
     $password=md5($_POST['password']);
-    $query=mysqli_query($con,"select ID from tbluser where  (Email='$emailcon' || MobileNumber='$emailcon') && Password='$password' ");
+    $query=mysqli_query($con,"select ID from tbluser where (Email='$emailcon' || MobileNumber='$emailcon') && Password='$password' ");
     $ret=mysqli_fetch_array($query);
     if($ret>0){
       $_SESSION['fosuid']=$ret['ID'];
@@ -46,8 +46,8 @@ if(isset($_POST['login']))
             <!-- .navbar -->
             <?php include('includes/header.php');?>
             <!-- /.navbar -->
-
          </header>
+
          <div class="page-wrapper">
             <div class="breadcrumb">
                <div class="container">
@@ -65,30 +65,27 @@ if(isset($_POST['login']))
                      <div class="col-md-8">
                         <div class="widget">
                            <div class="widget-body">
-                              <p style="font-size:16px; color:red" align="center"> <?php if($msg){
-    echo $msg;
-  }  ?> </p>
+                              <p style="font-size:16px; color:red" align="center"> <?php if($msg){echo $msg;}?> </p>
                               <form action="" name="login" method="post">
                                  <div class="row">
                                     <div class="form-group col-sm-6">
                                        <label for="exampleInputEmail1">Registered Email or Contact Number</label>
-                                       <input type="text" name="emailcont" id="email" class="form-control" placeholder="Registered Email or Contact Number"
-                      required="true" >
-                                    </div> </div>
-                                    <div class="row">
+                                       <input type="text" name="emailcont" id="email" class="form-control" placeholder="Registered Email or Contact Number" required="true" >
+                                    </div>
+                                 </div>
+                                  <div class="row">
                                     <div class="form-group col-sm-6">
                                        <label for="exampleInputPassword1">Password</label>
-<input type="password" class="form-control" id="password" value="" name="password" required="true" placeholder="Password">
-<h6 style="padding-top: 20px"><a href="forgot-password.php">Forgot Password?</a></h6> 
+                                        <input type="password" class="form-control" id="password" value="" name="password" required="true" placeholder="Password">
+                                        <h6 style="padding-top: 20px"><a href="forgot-password.php">Forgot Password?</a></h6>
                                     </div>
-                                    
-                                      </div>                              
+                                  </div>
                                  
                                  <div class="row">
                                     <div class="col-sm-4">
                                       <button type="submit" name="login" class="btn theme-btn"><i class="ft-user"></i>Login</button>
                                     </div>
-                                    <div class="col-sm-4">
+                                     <div class="col-sm-4">
                           <a href="registration.php" class="btn theme-btn"><i class="ft-user"></i>Register</a>
 
                         </div>
@@ -99,6 +96,8 @@ if(isset($_POST['login']))
                         </div>
                         <!-- /REGISTER -->
                      </div>
+
+
                      <!-- WHY? -->
                     <div class="col-md-4">
                         <h4>Registration is fast, easy, and free.</h4>

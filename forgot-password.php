@@ -73,21 +73,18 @@ if(isset($_POST['submit']))
                                  <div class="row">
                                     <div class="form-group col-sm-6">
                                        <label for="exampleInputEmail1">Registered Email</label>
-                                       <input type="email" name="email" id="email" class="form-control"    required="true" >
+                                       <input type="email" name="email" id="email" class="form-control"  required="true" >
                                     </div> </div>
                                     <div class="row">
                                     <div class="form-group col-sm-6">
                                        <label for="exampleInputPassword1">Mobile Number</label>
-<input type="text" class="form-control" required="true" name="contactno" maxlength="10" pattern="[0-9]{10}">
-
+                                        <input type="text" class="form-control" required="true" name="contactno" maxlength="10" pattern="[0-9]{10}">
                                     </div>
-                                    
                                       </div>                              
                                  
                                  <div class="row">
                                     <div class="col-sm-4">
                                       <button type="submit" name="submit" class="btn theme-btn"><i class="ft-user"></i>Reset</button>
-                                     
                                     </div>
                                     <div class="col-sm-4">
                           <a href="login.php" class="btn theme-btn"><i class="ft-user"></i>Sign In</a>

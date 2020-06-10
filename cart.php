@@ -8,25 +8,23 @@ if (strlen($_SESSION['fosuid']==0)) {
 //placing order
 
 if(isset($_POST['placeorder'])){
-//getting address
-$fnaobno=$_POST['flatbldgnumber'];
-$street=$_POST['streename'];
-$area=$_POST['area'];
-$lndmark=$_POST['landmark'];
-$city=$_POST['city'];
-$userid=$_SESSION['fosuid'];
-//genrating order number
-$orderno= mt_rand(100000000, 999999999);
-$query="update tblorders set OrderNumber='$orderno',IsOrderPlaced='1' where UserId='$userid' and IsOrderPlaced is null;";
-$query.="insert into tblorderaddresses(UserId,Ordernumber,Flatnobuldngno,StreetName,Area,Landmark,City) values('$userid','$orderno','$fnaobno','$street','$area','$lndmark','$city');";
+    //getting address
+    $fnaobno=$_POST['flatbldgnumber'];
+    $street=$_POST['streename'];
+    $area=$_POST['area'];
+    $lndmark=$_POST['landmark'];
+    $city=$_POST['city'];
+    $userid=$_SESSION['fosuid'];
+    //genrating order number
+    $orderno= mt_rand(100000000, 999999999);
+    $query="update tblorders set OrderNumber='$orderno',IsOrderPlaced='1' where UserId='$userid' and IsOrderPlaced is null;";
+    $query.="insert into tblorderaddresses(UserId,Ordernumber,Flatnobuldngno,StreetName,Area,Landmark,City) values('$userid','$orderno','$fnaobno','$street','$area','$lndmark','$city');";
 
-$result = mysqli_multi_query($con, $query);
-if ($result) {
-
-echo '<script>alert("Your order placed successfully. Order number is "+"'.$orderno.'")</script>';
-echo "<script>window.location.href='my-order.php'</script>";
-
-}
+    $result = mysqli_multi_query($con, $query);
+    if ($result) {
+        echo '<script>alert("Your order placed successfully. Order number is "+"'.$orderno.'")</script>';
+        echo "<script>window.location.href='my-order.php'</script>";
+    }
 }   
 
 //Code deletion
@@ -110,20 +108,13 @@ echo "<script>window.location.href='cart.php'</script>";
                                 <div class="sidebar-title white-txt">
                                     <h6>Food Categories</h6> <i class="fa fa-cutlery pull-right"></i> </div>
                                     <?php
-      
-      $query=mysqli_query($con,"select * from  tblcategory");
-              while($row=mysqli_fetch_array($query))
-              {
-              ?>    
-              
-                               <ul>
-                                            
+                                        $query=mysqli_query($con,"select * from  tblcategory");
+                                            while($row=mysqli_fetch_array($query)){?>
+                                                <ul>
                                             <li>
                                                 <label class="custom-control custom-checkbox">
                                                     <span class="custom-control-description"><a href="viewfood-categorywise.php?catid=<?php echo $row['CategoryName'];?>"><?php echo $row['CategoryName'];?></a></span> </label>
                                             </li>
-                                    
-                                        
                                         </ul>
                                         <?php } ?>
                                 <div class="clearfix"></div>
@@ -148,15 +139,12 @@ echo "<script>window.location.href='cart.php'</script>";
                             <div class="collapse in" id="1">
                                 <div class="food-item white">
 
-<?php 
-$userid= $_SESSION['fosuid'];
-$query=mysqli_query($con,"select tblorders.ID as frid,tblfood.Image,tblfood.ItemName,tblfood.ItemDes,tblfood.ItemPrice,tblfood.ItemQty,tblorders.FoodId from tblorders join tblfood on tblfood.ID=tblorders.FoodId where tblorders.UserId='$userid' and tblorders.IsOrderPlaced is null");
-$num=mysqli_num_rows($query);
-if($num>0){
-while ($row=mysqli_fetch_array($query)) {
- 
-
-?>
+                                    <?php
+                                    $userid= $_SESSION['fosuid'];
+                                    $query=mysqli_query($con,"select tblorders.ID as frid,tblfood.Image,tblfood.ItemName,tblfood.ItemDes,tblfood.ItemPrice,tblfood.ItemQty,tblorders.FoodId from tblorders join tblfood on tblfood.ID=tblorders.FoodId where tblorders.UserId='$userid' and tblorders.IsOrderPlaced is null");
+                                    $num=mysqli_num_rows($query);
+                                    if($num>0){
+                                        while ($row=mysqli_fetch_array($query)) {?>
 
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-lg-8">
@@ -165,29 +153,23 @@ while ($row=mysqli_fetch_array($query)) {
                                             </div>
                                             <!-- end:Logo -->
                                             <div class="rest-descr">
-<h6><a href="food-detail.php?fid=<?php echo $_SESSION['fid']=$row['FoodId'];?>"><?php echo $row['ItemName']?> (<?php echo $row['ItemQty']?>) </a></h6>
+                                                <h6><a href="food-detail.php?fid=<?php echo $_SESSION['fid']=$row['FoodId'];?>"><?php echo $row['ItemName']?> (<?php echo $row['ItemQty']?>) </a></h6>
                                                 <p> <?php echo $row['ItemDes']?></p>
                                             </div>
                                             <!-- end:Description -->
                                         </div>
                                         <!-- end:col -->
                                         <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info"> <span class="price pull-left">Rs. <?php echo $total=$row['ItemPrice']?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="cart.php?delid=<?php echo $row['frid'];?>" onclick="return confirm('Do you really want to delete?');";><i class="fa fa-trash" aria-hidden="true" title="Delete this food item"></i><a/></span>
+                                            <a href="cart.php?delid=<?php echo $row['frid'];?>" onclick="return confirm('Do you really want to delete?');";><i class="fa fa-trash" aria-hidden="true" title="Delete this food item"></i></a></span>
                                         </div>
                                     </div>
                                     <!-- end:row -->
 
-                                <?php 
-$grandtotal+=$total;
-                            } 
-
-} else {
-
-    echo "You cart is empty.";
-}
-                            ?>
+                                <?php $grandtotal+=$total;
+                                        }
+                                    } else {
+                                        echo "You cart is empty.";} ?>
                                 </div>
-                          
                             </div>
                             <!-- end:Collapse -->
                         </div>
@@ -198,31 +180,29 @@ $grandtotal+=$total;
                     <!-- end:Bar -->
                     <?php if($num>0){?>
                         <form method="post">
-                    <div class="col-xs-12 col-md-12 col-lg-3">
-                        <div class="sidebar-wrap">
-                            <div class="widget widget-cart">
-                                <div class="widget-heading">
-                                    <h3 class="widget-title text-dark">
-                                 Your Shopping Cart
-                              </h3>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="order-row bg-white">
-                                    <div class="widget-body">
-                                 
-                                        <div class="form-group row no-gutter">
-                                            <div class="col-lg-12">
-<input type="text" name="flatbldgnumber"  placeholder="Flat or Building Number" class="form-control" required="true">
-<input type="text" name="streename" placeholder="Street Name" class="form-control" required="true">       
-<input type="text" name="area"  placeholder="Area" class="form-control" required="true">
-<input type="text" name="landmark" placeholder="Landmark if any" class="form-control"> 
-<input type="text" name="city" placeholder="City" class="form-control">                 
-                                          
+                            <div class="col-xs-12 col-md-12 col-lg-3">
+                                <div class="sidebar-wrap">
+                                    <div class="widget widget-cart">
+                                        <div class="widget-heading">
+                                            <h3 class="widget-title text-dark">
+                                         Your Shopping Cart
+                                      </h3>
+                                            <div class="clearfix"></div>
                                         </div>
-                                    </div>
-                                </div>
-                                <hr />
-                            
+                                        <div class="order-row bg-white">
+                                            <div class="widget-body">
+
+                                                <div class="form-group row no-gutter">
+                                                    <div class="col-lg-12">
+                                                        <input type="text" name="flatbldgnumber"  placeholder="Flat or Building Number" class="form-control" required="true">
+                                                        <input type="text" name="streename" placeholder="Street Name" class="form-control" required="true">
+                                                        <input type="text" name="area"  placeholder="Area" class="form-control" required="true">
+                                                        <input type="text" name="landmark" placeholder="Landmark if any" class="form-control">
+                                                        <input type="text" name="city" placeholder="City" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                   <hr />
                           
                                 <div class="widget-body">
                                     <div class="price-wrap text-xs-center">

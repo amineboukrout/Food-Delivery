@@ -48,8 +48,8 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
        <?php include_once('includes/header.php');?>
             <!-- /.navbar -->
         </header>
+
         <div class="page-wrapper">
-          
             <!-- start: Inner page hero -->
             <div class="inner-page-hero bg-image" data-image-src="images/online.jpg">
                 <div class="container"> </div>
@@ -60,7 +60,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                     <div class="row">
                         <div class="col-sm-3">
                            
-                        </p>
+<!--                        </p>-->
                   
                     </div>
                 </div>
@@ -74,26 +74,20 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                 <div class="main-block">
                                     <div class="sidebar-title white-txt">
                                         <h6>Food Category</h6> <i class="fa fa-cutlery pull-right"></i> </div>
-                                   
                                     <?php
-      
-      $query=mysqli_query($con,"select * from  tblcategory");
-              while($row=mysqli_fetch_array($query))
-              {
-              ?>    
-              
-                               <ul>
-                                            
+                                    $query=mysqli_query($con,"select * from  tblcategory");
+                                        while($row=mysqli_fetch_array($query)){?>
+                                            <ul>
                                             <li>
                                                 <label class="custom-control custom-checkbox">
                                                     <span class="custom-control-description"><a href="viewfood-categorywise.php?catid=<?php echo $row['CategoryName'];?>"><?php echo $row['CategoryName'];?></a></span> </label>
                                             </li>
-                                    
-                                        
-                                        </ul>
+                                            </ul>
                                         <?php } ?>
+
                                     <div class="clearfix"></div>
                                 </div>
+
                                 <!-- end:Sidebar nav -->
                                 <div class="widget-delivery">
                                     
@@ -108,63 +102,51 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                             <div class="bg-gray restaurant-entry">
 
 <?php
-$uid=$_SESSION['fosuid'];
-      $query=mysqli_query($con,"select * from  tblorderaddresses  where UserId='$uid'");
-      $count=1;
-              while($row=mysqli_fetch_array($query))
-              { ?>                  
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
-                                        <div class="entry-logo">
-                                <a class="img-fluid" href="order-details.php?orderid=<?php echo $row['Ordernumber'];?>"><img src="images/order.jpg" width="100" height="100" alt="Order "></a>
-                                        </div>
-                                        <!-- end:Logo -->
-                                        <div class="entry-dscr">
-         <h5><a href="order-details.php?orderid=<?php echo $row['Ordernumber'];?>">Order # <?php echo $row['Ordernumber'];?></a></h5> 
-         <p><b>Order Date :</b> <?php echo $row['OrderTime']?></p>
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fa fa-check"></i> 
-                                                    <?php $status=$row['OrderFinalStatus'];
-if($status==''){
- echo "Waiting for Restaurant confirmation";   
-} else{
-echo $status;
-}
-
-                                                    ?></li>
-                                                <li class="list-inline-item"><i class="fa fa-motorcycle"></i> 
-<?php    
-
-$link = "http"; 
-$link .= "://"; 
-$link .= $_SERVER['HTTP_HOST']; 
-?>
- <a href="javascript:void(0);" onClick="popUpWindow('trackorder.php?oid=<?php echo htmlentities($row['Ordernumber']);?>');" title="Track order">Track Order</a></li>
-                                            </ul>
-                                        </div>
+    $uid=$_SESSION['fosuid'];
+    $query=mysqli_query($con,"select * from  tblorderaddresses  where UserId='$uid'");
+    $count=1;
+    while($row=mysqli_fetch_array($query)){ ?>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-8 text-xs-center text-sm-left">
+                <div class="entry-logo">
+                    <a class="img-fluid" href="order-details.php?orderid=<?php echo $row['Ordernumber'];?>"><img src="images/order.jpg" width="100" height="100" alt="Order "></a>
+                </div>
+                <!-- end:Logo -->
+                <div class="entry-dscr">
+                    <h5><a href="order-details.php?orderid=<?php echo $row['Ordernumber'];?>">Order # <?php echo $row['Ordernumber'];?></a></h5>
+                    <p><b>Order Date :</b> <?php echo $row['OrderTime']?></p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><i class="fa fa-check"></i>
+                            <?php $status=$row['OrderFinalStatus'];
+                                if($status==''){echo "Waiting for Restaurant confirmation";}
+                                else{echo $status;} ?>
+                        </li>
+                        <li class="list-inline-item"><i class="fa fa-motorcycle"></i>
+                            <?php
+                                $link = "http";
+                                $link .= "://";
+                                $link .= $_SERVER['HTTP_HOST']; ?>
+                            <a href="javascript:void(0);" onClick="popUpWindow('trackorder.php?oid=<?php echo htmlentities($row['Ordernumber']);?>');" title="Track order">Track Order</a></li>
+                    </ul>
+                </div>
                                         <!-- end:Entry description -->
-                                    </div>
-                                    <div class="col-sm-12 col-md-12 col-lg-4 text-xs-center">
-                                        <div class="right-content bg-white">
-                                            <div class="right-review">
-                                             
-                                     <a href="order-details.php?orderid=<?php echo $row['Ordernumber'];?>" class="btn theme-btn-dash">View Details</a> </div>
-                                        </div>
-                                        <!-- end:right info -->
-                                    </div>
-                                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4 text-xs-center">
+                <div class="right-content bg-white">
+                    <div class="right-review">
+                         <a href="order-details.php?orderid=<?php echo $row['Ordernumber'];?>" class="btn theme-btn-dash">View Details</a> </div>
+                    </div>
+                <!-- end:right info -->
+            </div>
+        </div>
                                 <hr />
                             <?php } ?>
                                 <!--end:row -->
                             </div>
-                        
-                           
-                            
-                      
                                 <!--end:row -->
                             </div>
                             <!-- end:Restaurant entry -->
-                            
+
                             <!-- end:Restaurant entry -->
                         </div>
                     </div>

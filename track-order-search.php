@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 error_reporting(0);
@@ -73,11 +72,8 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                                         <h6>Food Category</h6> <i class="fa fa-cutlery pull-right"></i> </div>
                                    
                                     <?php
-      
-      $query=mysqli_query($con,"select * from  tblcategory");
-              while($row=mysqli_fetch_array($query))
-              {
-              ?>    
+                                    $query=mysqli_query($con,"select * from  tblcategory");
+              while($row=mysqli_fetch_array($query)){?>
               
                                <ul>
                                             

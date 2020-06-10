@@ -13,12 +13,12 @@ if(isset($_POST['submit']))
     $ret=mysqli_query($con, "select Email from tbluser where Email='$email' || MobileNumber='$contno'");
     $result=mysqli_fetch_array($ret);
     if($result>0){
-$msg="This email or Contact Number already associated with another account";
+        $msg="This email or Contact Number already associated with another account";
     }
     else{
-    $query=mysqli_query($con, "insert into tbluser(FirstName, LastName, MobileNumber, Email, Password) value('$fname', '$lname','$contno', '$email', '$password' )");
+        $query=mysqli_query($con, "insert into tbluser(FirstName, LastName, MobileNumber, Email, Password) value('$fname', '$lname','$contno', '$email', '$password' )");
     if ($query) {
-    $msg="You have successfully registered";
+        $msg="You have successfully registered";
   }
   else
     {
@@ -26,7 +26,6 @@ $msg="This email or Contact Number already associated with another account";
     }
 }
 }
-
  ?>
 
 
@@ -56,19 +55,15 @@ $msg="This email or Contact Number already associated with another account";
             <?php include('includes/header.php');?>
             <!-- /.navbar -->
 <script type="text/javascript">
-function checkpass()
-{
-if(document.signup.password.value!=document.signup.repeatpassword.value)
-{
-alert('Password and Repeat Password field does not match');
-document.signup.repeatpassword.focus();
-return false;
+function checkpass(){
+    if(document.signup.password.value!=document.signup.repeatpassword.value){
+        alert('Password and Repeat Password field does not match');
+        document.signup.repeatpassword.focus();
+        return false;
+    }
+    return true;
 }
-return true;
-} 
-
 </script>
-
          </header>
          <div class="page-wrapper">
             <div class="breadcrumb">
@@ -87,9 +82,9 @@ return true;
                      <div class="col-md-8">
                         <div class="widget">
                            <div class="widget-body">
-                              <p style="font-size:16px; color:red" align="center"> <?php if($msg){
-    echo $msg;
-  }  ?> </p>
+                              <p style="font-size:16px; color:red" align="center"> <?php if($msg){echo $msg;}  ?> </p>
+
+<!--                              form start -->
                               <form action="" name="signup" method="post" onsubmit="return checkpass();">
                                  <div class="row">
                                     <div class="form-group col-sm-6">
@@ -116,16 +111,16 @@ return true;
                                        <label for="exampleInputPassword1">Repeat password</label>
                                        <input type="password" class="form-control" id="repeatpassword" value="" name="repeatpassword" required="true"> 
                                     </div>
-                                                                     </div>
-                                 
+                                 </div>
+<!--                                 form end-->
+
                                  <div class="row">
                                     <div class="col-sm-4">
-                                      <button type="submit" name="submit" class="btn theme-btn"><i class="ft-user"></i> Register</button>
+                                      <button type="submit" name="submit" class="btn theme-btn"><i class="ft-user"></i>Register</button>
                                     </div>
                                     <div class="col-sm-4">
-                          <a href="login.php" class="btn theme-btn"><i class="ft-user"></i> Login</a>
-
-                        </div>
+                                        <a href="login.php" class="btn theme-btn"><i class="ft-user"></i> Login</a>
+                                </div>
                                  </div>
                               </form>
                            </div>

@@ -4,19 +4,17 @@ error_reporting(0);
 include('includes/dbconnection.php');
 error_reporting(0);
 
-if(isset($_POST['submit']))
-  {
+if(isset($_POST['submit'])){
     $contactno=$_SESSION['contactno'];
     $email=$_SESSION['email'];
     $password=md5($_POST['newpassword']);
 
         $query=mysqli_query($con,"update tbluser set Password='$password'  where  Email='$email' && MobileNumber='$contactno' ");
-   if($query)
-   {
-echo "<script>alert('Password successfully changed');</script>";
-session_destroy();
+   if($query){
+       echo "<script>alert('Password successfully changed');</script>";
+       session_destroy();
+       header("location: login.php");
    }
-  
   }
   ?>
 
@@ -102,9 +100,8 @@ return true;
                                      
                                     </div>
                                     <div class="col-sm-4">
-                          <a href="login.php" class="btn theme-btn"><i class="ft-user"></i>Sign In</a>
-
-                        </div>
+                                          <a href="login.php" class="btn theme-btn"><i class="ft-user"></i>Sign In</a>
+                                    </div>
                                  </div>
                               </form>
                            </div>

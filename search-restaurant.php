@@ -1,10 +1,20 @@
-
 <?php
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(isset($_POST['submit']))
-{
+
+////foreach ($_POST as $key => $value) {
+////    echo '<p>'.$key.'</p>';
+////    foreach($value as $k => $v)
+////    {
+////        echo '<p>'.'jjjjjjj'.$k.'</p>';
+////        echo '<p>'.'jjjjjjjjj'.$v.'</p>';
+////        echo '<hr />';
+////    }
+////    echo 'hetrw';
+//}
+
+if(isset($_POST['submit'])) {
 $foodid=$_POST['foodid'];
 $userid= $_SESSION['fosuid'];
 $query=mysqli_query($con,"insert into tblorders(UserId,FoodId) values('$userid','$foodid') ");
@@ -16,6 +26,21 @@ if($query)
 }
 }
 
+function phpAlert($msg) {
+    echo '<script type="text/javascript">alert("' . $msg . '")</script>';
+}
+
+function printArray($array){
+    foreach ($array as $key => $value){
+        echo "$key => $value\n";
+        echo "\n";
+        if(is_array($value)){ //If $value is an array, print it as well!
+            echo "\n";
+            printArray($value);
+
+        }
+    }
+}
 
   ?>
 <!DOCTYPE html>
@@ -49,7 +74,7 @@ if($query)
         <div class="page-wrapper">
             <!-- top Links -->
             <div class="top-links">
-                
+              
             </div>
             <!-- end:Top links -->
             <!-- start: Inner page hero -->
@@ -59,11 +84,12 @@ if($query)
             </div>
             <div class="result-show">
     <div class="container">
-        <div class="row">
+         <div class="row">
             <div class="col-sm-3">
-                <p><span class="primary-color"><strong>Find Your Delicious Foods Here..</strong></span> </div>
+                <?php $sdata=$_POST['searchdata']; ?>
+                <p style="text-align: center;"><span class="primary-color"><strong>Result against "<?php echo $sdata;?>" keyword</strong></span>
+            </div>
             </p>
-           
         </div>
     </div>
 </div>
@@ -76,9 +102,9 @@ if($query)
                                  <form name="search" method="post" action="search-food.php">
                                 <div class="main-block">
                                     <div class="sidebar-title white-txt">
-                                        <h6>Search Food</h6> <i class="fa fa-cutlery pull-right"></i> </div>
+                                        <h6>Search Restaurant</h6> <i class="fa fa-cutlery pull-right"></i> </div>
                                     <div class="input-group">
-                                        <input type="text" class="form-control search-field" placeholder="Search your favorite food" name="searchdata" id="searchdata"> <span class="input-group-btn"> 
+                                        <input type="text" class="form-control search-field" placeholder="Search your favorite restaurant" name="searchdata"> <span class="input-group-btn">
                                  <button class="btn btn-secondary search-btn" type="submit" name="search"><i class="fa fa-search"></i></button> 
                                  </span> </div>
                                      </div>
@@ -88,27 +114,21 @@ if($query)
 
                                     <div class="main-block" style="margin-top: 10%">
                                     <div class="sidebar-title white-txt">
-                                        <h6>Food Categories</h6> <i class="fa fa-cutlery pull-right"></i> </div>
+                                        <h6>Restaurants</h6> <i class="fa fa-cutlery pull-right"></i> </div>
                                <?php
-      
-      $query=mysqli_query($con,"select * from  tblcategory");
-              while($row=mysqli_fetch_array($query)){?>
-
+                               $query=mysqli_query($con,"select * from  tblrestaurants");
+                               while($row=mysqli_fetch_array($query)) {?>
                                         <ul>
-                                            
                                             <li>
                                                 <label class="custom-control custom-checkbox">
-                                                    <span class="custom-control-description"><a href="viewfood-categorywise.php?catid=<?php echo $row['CategoryName'];?>"><?php echo $row['CategoryName'];?></a></span> </label>
+                                                    <span class="custom-control-description"><a href="viewfood-categorywise.php?editid=<?php echo $row['Category'];?>">
+                                                            <?php echo $row['RestaurantName'];?></a></span> </label>
                                             </li>
-                                    
-                                        
                                         </ul>
                               <?php } ?>
                                     <div class="clearfix"></div>
                                 </div>
-
                             </div>
-                    
                             <!-- end:Pricing widget -->
                      
                             <!-- end:Widget -->
@@ -116,62 +136,42 @@ if($query)
                      <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
                             <div class="row">
                                 <!-- Each popular food item starts -->
-                                                    <?php
- $cid=$_GET['catid'];
-// echo $cid . "        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
-$ret=mysqli_query($con,"select * from tblfood where CategoryName='$cid'");
-$cnt=1;
-while ($row=mysqli_fetch_array($ret)) {
+                                <?php
+                                    $searchdata=$_POST['searchdata'];
 
-?>
-   
+                                    $sql = "SELECT * FROM tblrestaurants where RestaurantName like '%$searchdata%'";
+                                    $res_data = mysqli_query($con, $sql);
+
+//                                    $sql = "SELECT * FROM tblfood where ItemName like '%$searchdata%' ";
+//                                    $res_data = mysqli_query($con,$sql);
+                                    $cnt=1;
+                                    while($row = mysqli_fetch_array($res_data)){?>
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
                                     <div class="food-item-wrap">
-                                        <div class="figure-wrap bg-image"> <img src="admin/itemimages/<?php echo $row['Image'];?>" width="300" height="180">
-                                       
-                                           
-                                            
+                                        <?php phpAlert($cnt) ?>
+                                        <div class="figure-wrap bg-image"> <img src="admin/itemimages/<?php echo $row['Logo'];?>" width="300" height="180">
                                         </div>
                                         <div class="content">
-                                            <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['ItemName'];?></a></h5>
-                                            <div class="product-name"><?php echo substr($row['ItemDes'],0,30);?></div>
-                                            <div class="price-btn-block"> <span class="price">Rs. <?php echo $row['ItemPrice'];?></span> 
-
-<?php if($_SESSION['fosuid']==""){?>
-<a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>
-<?php } else {?>
-    <form method="post"> 
-    <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>">   
-<button type="submit" name="submit" class="btn theme-btn-dash pull-right">Order Now</button>
-  </form> 
-<?php }?>
-                                             </div>
+                                            <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['RestaurantName'];?></a></h5>
+                                            <div class="product-name"><?php echo substr($row['Category'],0,50);?></div>
+<!--                                            <div class="price-btn-block"> <span class="price">Rs. --><?php //echo $row['ItemPrice'];?><!--</span> -->
+<!--                                                --><?php //if($_SESSION['fosuid']==""){?>
+<!--                                                    <a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>-->
+<!--                                                --><?php //} else {?>
+<!--                                                    <form method="post">-->
+<!--                                                    <input type="hidden" name="foodid" value="--><?php //echo $row['ID'];?><!--">-->
+<!--                                                <button type="submit" name="submit" class="btn theme-btn-dash pull-right">Order Now</button>-->
+<!--                                                  </form>-->
+<!--                                                --><?php //}?>
+             </div>
                                         </div>
                                   
                                     </div>
                                 </div>
-                                    <?php } ?>
+                                    <?php $cnt=$cnt+1; } ?>
                               
                                 <!-- Each popular food item starts -->
-                                
-                                <div class="col-xs-12" align="center">
-                                    <nav aria-label="...">
-                                      
-
-<ul class="pagination" >
-        <li class="page-link"><a href="?pageno=1">First</a></li>
-        <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?> page-link">
-            <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
-        </li>
-        <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?> page-link">
-            <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
-        </li>
-        <li class="page-link"><a href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
-    </ul>
-
-
-                                    </nav>
-                                </div>
+                           
                             </div>
                             <!-- end:right row -->
                         </div>
@@ -196,5 +196,4 @@ while ($row=mysqli_fetch_array($ret)) {
     <script src="js/headroom.js"></script>
     <script src="js/foodpicky.min.js"></script>
 </body>
-
 </html>

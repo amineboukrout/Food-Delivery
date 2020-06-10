@@ -2,17 +2,15 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if(isset($_POST['submit']))
-{
-$foodid=$_POST['foodid'];
-$userid= $_SESSION['fosuid'];
-$query=mysqli_query($con,"insert into tblorders(UserId,FoodId) values('$userid','$foodid') ");
-if($query)
-{
- echo "<script>alert('Food has been added in to the cart');</script>";   
-} else {
- echo "<script>alert('Something went wrong.');</script>";      
-}
+if(isset($_POST['submit'])) {
+    $foodid=$_POST['foodid'];
+    $userid= $_SESSION['fosuid'];
+    $query=mysqli_query($con,"insert into tblorders(UserId,FoodId) values('$userid','$foodid') ");
+    if($query) {
+        echo "<script>alert('Food has been added in to the cart');</script>";
+    }else {
+     echo "<script>alert('Something went wrong.');</script>";
+    }
 }
 
 
@@ -58,16 +56,13 @@ if($query)
  $cid=$_GET['fid'];
 $ret=mysqli_query($con,"select * from tblfood where ID='$cid'");
 $cnt=1;
-while ($row=mysqli_fetch_array($ret)) {
-
-?>
+while ($row=mysqli_fetch_array($ret)) {?>
             <section class="inner-page-hero bg-image" data-image-src="images/decouvrez-l-experience-food-d-airbnb.jpg">
                 <div class="profile">
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12  col-md-4 col-lg-4 profile-img">
                                 <div class="image-wrap">
-
                                     <figure><img src="admin/itemimages/<?php echo $row['Image'];?>" width="200" height="100"></figure>
                                 </div>
                             </div>
@@ -155,24 +150,20 @@ while ($row=mysqli_fetch_array($ret)) {
                     <div class="col-xs-12 col-md-12 col-lg-3">
                         <div class="sidebar-wrap">
                             <div class="widget widget-cart">
-                                
-                               
-                                
                                 <!-- end:Order row -->
-                               
                                 <div class="widget-body">
                                     <div class="price-wrap text-xs-center">
                                         <p>TOTAL</p>
                                         <h3 class="value"><strong>Rs.<?php echo $row['ItemPrice'];?></strong></h3>
                                         <p>Free Shipping</p>
                                         <?php if($_SESSION['fosuid']==""){?>
-<a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>
-<?php } else {?>
-    <form method="post"> 
-    <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>">  
-                                        <button type="submit" name="submit" class="btn theme-btn btn-lg">Order Now</button>
-  </form> 
-<?php }?>
+                                            <a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>
+                                        <?php } else {?>
+                                            <form method="post">
+                                            <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>">
+                                            <button type="submit" name="submit" class="btn theme-btn btn-lg">Order Now</button>
+                                            </form>
+                                        <?php }?>
                                     </div>
                                 </div>
                             </div>

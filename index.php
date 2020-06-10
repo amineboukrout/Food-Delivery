@@ -35,11 +35,13 @@ if($query)
     <link href="css/animsition.min.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet"> </head>
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
 <body class="home">
     <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
-        <!--header starts-->
+        <!--header starts7-->
+
         <header id="header" class="header-scroll top-header headrom">
             <!-- .navbar -->
             <?php include_once('includes/header.php');?>
@@ -50,17 +52,21 @@ if($query)
             <div class="hero-inner">
                 <div class="container text-center hero-text font-white">
                     <h1>Order Delivery</h1>
-                    <h5 class="font-white space-xs">Find your favourite delicious hot food!</h5>
+                    <h5 class="font-white space-xs">Find your favourite Restaurant!</h5>
+
                     <div class="banner-form">
-                        <form class="form-inline" method="post" name="search" action="search-food.php">
+                        <form class="form-inline" method="post" name="search" action="search-food.php"> <!--action="search-food.php">-->
                             <div class="form-group">
-                                <label class="sr-only" for="exampleInputAmount">I would like to eat....</label>
+                                <label class="sr-only" for="exampleInputAmount">I would like to eat at....</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" id="exampleInputAmount"  name="searchdata" id="searchdata" placeholder="I would like to eat...."> </div>
+                                    <input type="text" class="form-control form-control-lg" name="searchdata" id="searchdata" placeholder="I would like to eat at....">
+                                </div>
                             </div>
-                            <button onclick="location.href='search-food.php'" type="submit" name="search" class="btn theme-btn btn-lg">Search food</button>
+                            <button onclick="location.href='search-food.php'" type="submit" name="search" class="btn theme-btn btn-lg">Search Restaurant</button>
+<!--                            <button onclick="location.href='insertintotest.php'">Search food</button>-->
                         </form>
                     </div>
+
                     <div class="steps">
                         <div class="step-item step1">
                             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 483 483" width="512" height="512">
@@ -92,10 +98,21 @@ if($query)
         <!-- banner part ends -->
         <!-- location match part starts -->
         <div class="location-match text-xs-center">
-            <div class="container"> <span>Popular Delicious Foods Here: <span class="primary-color">All over India</span> </span>
+            <div class="container"> <span>Popular Delicious Foods Here: <span class="primary-color">All over Planet Earth</span> </span>
             </div>
         </div>
         <!-- location match part ends -->
+
+
+
+
+
+
+
+
+
+
+
         <!-- Popular block starts -->
         <section class="popular">
             <div class="container">
@@ -104,50 +121,46 @@ if($query)
                     <p class="lead">The easiest way to get your favourite food</p>
                 </div>
 
-
                 <div class="row">
                     <!-- Each popular food item starts -->
                     <?php
-
-                    
-$ret=mysqli_query($con,"select * from tblfood order by rand() limit 9");
-$cnt=1;
-while ($row=mysqli_fetch_array($ret)) {
-
-?>
-                    <div class="col-xs-12 col-sm-6 col-md-4 food-item">
-                        <div class="food-item-wrap">
-                            <div class="figure-wrap bg-image"><img src="admin/itemimages/<?php echo $row['Image'];?>" width="400" height="180">
-                                
-                                
+                        $ret=mysqli_query($con,"select * from tblrestaurants order by rand() limit 9");
+                        $cnt=1;
+                        while ($row=mysqli_fetch_array($ret)) {?>
+                            <div class="col-xs-12 col-sm-6 col-md-4 food-item">
+                                <div class="food-item-wrap">
+                                    <div class="figure-wrap bg-image"><img src="admin/itemimages/<?php echo $row['Logo'];?>" width="400" height="180"></div>
+                                    <div class="content">
+                                        <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['RestaurantName'];?></a></h5>
+                                        <div class="product-name"><?php echo substr($row['Category'],0,40);?></div>
+<!--                                        <div class="price-btn-block"> <span class="price">Rs. --><?php //echo $row['ItemPrice'];?><!--</span>-->
+<!--    -->
+<!--    -->
+<!--                                            --><?php //if($_SESSION['fosuid']==""){?>
+<!--                                                <a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>-->
+<!--                                            --><?php //} else {?>
+<!--                                                <form method="post">-->
+<!--                                                    <input type="hidden" name="foodid" value="--><?php //echo $row['ID'];?><!--">-->
+<!--                                                    <button type="submit" name="submit" class="btn theme-btn-dash pull-right">Order Now</button>-->
+<!--                                                </form>-->
+<!--                                            --><?php //}?><!-- </div>-->
+                                    </div>
+                                </div>
                             </div>
-                            <div class="content">
-                                <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['ItemName'];?></a></h5>
-                                <div class="product-name"><?php echo substr($row['ItemDes'],0,40);?></div>
-                                <div class="price-btn-block"> <span class="price">Rs. <?php echo $row['ItemPrice'];?></span>
-
-
-<?php if($_SESSION['fosuid']==""){?>
-<a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>
-<?php } else {?>
-    <form method="post"> 
-    <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>">   
-<button type="submit" name="submit" class="btn theme-btn-dash pull-right">Order Now</button>
-  </form> 
-<?php }?> </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                      <?php } ?>
-                    <!-- Each popular food item starts -->
-                    <!-- Each popular food item starts -->
-                    
+                        <?php } ?>
+                        <!-- Each popular food item starts -->
+                        <!-- Each popular food item starts -->
                 </div>
             </div>
         </section>
         <!-- Popular block ends -->
         <!-- How it works block starts -->
+
+
+
+
+
+
         <section class="how-it-works">
             <div class="container">
                 <div class="text-xs-center">
@@ -203,9 +216,9 @@ while ($row=mysqli_fetch_array($ret)) {
         </section>
         <!-- How it works block ends -->
         <!-- Featured restaurants starts -->
-        
+
         <!-- Featured restaurants ends -->
-        
+
         <!-- start: FOOTER -->
         <?php include_once('includes/footer.php');?>
         <!-- end:Footer -->
