@@ -54,6 +54,11 @@ $fdate=$_POST['fromdate'];
 $tdate=$_POST['todate'];
 $rtype=$_POST['requesttype'];
 
+$id = $_SESSION['fosaid'];
+$squerry = mysqli_query($con,"select * from tbladmin where ID = $id");
+$roww = mysqli_fetch_array($squerry);
+$uid=$roww['UID'];
+//echo '<script type="text/javascript">alert("'.$uid.'");</script>';
 ?>
 
 <?php if($rtype=='mtwise'){
@@ -77,7 +82,7 @@ $y2=date("Y",$month2);
 </thead>
 <?php
 $fstatus='Food Delivered';
-$ret=mysqli_query($con,"select month(OrderTime) as lmonth,year(OrderTime) as lyear,sum(ItemPrice) as totalitmprice from tblorders join tblorderaddresses on tblorderaddresses.Ordernumber=tblorders.OrderNumber join tblfood on tblfood.ID=tblorders.FoodId where date(tblorderaddresses.OrderTime) between '$fdate' and '$tdate' and tblorderaddresses.OrderFinalStatus='$fstatus'  group by lmonth,lyear");
+$ret=mysqli_query($con,"select month(OrderTime) as lmonth,year(OrderTime) as lyear,sum(ItemPrice) as totalitmprice from tblorders join tblorderaddresses on tblorderaddresses.Ordernumber=tblorders.OrderNumber join tblfood on tblfood.ID=tblorders.FoodId where RestaurantID = '$uid' and date(tblorderaddresses.OrderTime) between '$fdate' and '$tdate' and tblorderaddresses.OrderFinalStatus='$fstatus'  group by lmonth,lyear");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

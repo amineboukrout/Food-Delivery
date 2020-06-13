@@ -54,7 +54,13 @@ if (strlen($_SESSION['fosaid']==0)) {
 $fdate=$_POST['fromdate'];
 $tdate=$_POST['todate'];
 $rtype=$_POST['requesttype'];
+$id = $_SESSION['fosaid'];
+$squerry = mysqli_query($con,"select * from tbladmin where ID = $id");
+$roww = mysqli_fetch_array($squerry);
+$uid=$roww['UID'];
+//echo '<script type="text/javascript">alert("'.$uid.'");</script>';
 ?>
+
 <h5 align="center" style="color:blue">Report from <?php echo $fdate?> to <?php echo $tdate?></h5>
 <hr />
 <?php if($rtype=="all"){?>                          
@@ -68,7 +74,7 @@ $rtype=$_POST['requesttype'];
                 </tr>
               </thead>
               <?php
-$ret=mysqli_query($con,"select * from tblorderaddresses where OrderTime between '$fdate' and '$tdate'");
+$ret=mysqli_query($con,"select * from tblorderaddresses where OrderTime between '$fdate' and '$tdate' and RestaurantID = '$uid'") ;
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

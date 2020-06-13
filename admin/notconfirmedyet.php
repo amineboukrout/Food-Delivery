@@ -29,6 +29,13 @@ if (strlen($_SESSION['fosaid']==0)) {
 </head>
 
 <body>
+<?php
+$id = $_SESSION['fosaid'];
+$squerry = mysqli_query($con,"select * from tbladmin where ID = $id");
+$roww = mysqli_fetch_array($squerry);
+$uid=$roww['UID'];
+//echo '<script type="text/javascript">alert("'.$uid.'");</script>';
+?>
 
     <div id="wrapper">
 
@@ -59,7 +66,7 @@ if (strlen($_SESSION['fosaid']==0)) {
                 </tr>
               </thead>
               <?php
-$ret=mysqli_query($con,"select * from tblorderaddresses where OrderFinalStatus is null");
+$ret=mysqli_query($con,"select * from tblorderaddresses where OrderFinalStatus is null and RestaurantID = '$uid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
