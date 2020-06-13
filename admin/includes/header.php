@@ -4,7 +4,7 @@
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
            
         </div>
- <p style="font-size: 20px;padding-top:1%" ><strong>Food Ordering System!!</strong></p>
+ <p style="font-size: 20px;padding-top:1%" ><strong>Food Ordering System</strong></p>
         
             <ul class="nav navbar-top-links navbar-right">
                                 <?php
