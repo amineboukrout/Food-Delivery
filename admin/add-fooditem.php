@@ -2,12 +2,17 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
+
+$id = $_SESSION['fosaid'];
+$rquerry = mysqli_query($con,"select * FROM tbladmin WHERE ID = $id");
+$rid = mysqli_fetch_assoc($rquerry);
+$uid = $rid['UID'];
+
 if (strlen($_SESSION['fosaid']==0)) {
   header('location:logout.php');
   } else{
 
-if(isset($_POST['submit']))
-  {
+if(isset($_POST['submit'])) {
     $faid=$_SESSION['fosaid'];
     $fcat=$_POST['foodcategory'];
     $itemname=$_POST['itemname'];
@@ -18,33 +23,41 @@ if(isset($_POST['submit']))
     $itempic=$_FILES["itemimages"]["name"];
     $extension = substr($itempic,strlen($itempic)-4,strlen($itempic));
 // allowed extensions
-$allowed_extensions = array(".jpg","jpeg",".png",".gif");
+    $allowed_extensions = array(".jpg","jpeg",".png",".gif");
 // Validation for allowed extensions .in_array() function searches an array for a specific value.
-if(!in_array($extension,$allowed_extensions))
-{
-echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+if(!in_array($extension,$allowed_extensions)) {
+    echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
 }
-else
-{
+else{
     $itempic=md5($itempic).$extension;
-     move_uploaded_file($_FILES["itemimages"]["tmp_name"],"itemimages/".$itempic);
-    $query=mysqli_query($con, "insert into tblfood(CategoryName,ItemName,ItemPrice,ItemDes,ItemQty,Image) value('$fcat','$itemname','$price','$description','$quantity','$itempic')");
+    move_uploaded_file($_FILES["itemimages"]["tmp_name"],"itemimages/".$itempic);
+
+    $query=mysqli_query($con, "insert into tblfood(CategoryName,ItemName,ItemPrice,ItemDes, Image,ItemQty, RestaurantID) value('$fcat','$itemname','$price','$description','$itempic','$quantity','$uid')");
     if ($query) {
     $msg="Food Item has been added.";
   }
-  else
-    {
+  else {
       $msg="Something Went Wrong. Please try again";
     }
-
-  
+//    $vars = array($fcat,$itemname,$price,$description,$itempic,$quantity,$uid);
+//    file_put_contents('filename.txt', print_r($vars, true));
 }
 }
   ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
+<!--    --><?php //print_r($_SESSION['fosaid']) ?>
+<!--    --><?php
+//    echo '<script type="text/javascript">alert("'.$_SESSION['fosaid'].'");</script>';
+//    $id = $_SESSION['fosaid'];
+//    $rquekrry = mysqli_query($con,"select * FROM tbladmin WHERE ID = $id");
+//    $ridd = mysqli_fetch_assoc($rquekrry);
+//    $uidd = $ridd['UID'];
+//    echo '<script type="text/javascript">alert("'.$uidd.'");</script>';
+//    ?>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,21 +70,21 @@ else
     <link href="css/plugins/steps/jquery.steps.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
 </head>
 
 <body>
+    <?php // echo '<script type="text/javascript">alert("'.session_id().'");</script>';
+        // echo '<script type="text/javascript">alert("'.$uid.'");</script>';
+    ?>
 
     <div id="wrapper">
-
-    <?php include_once('includes/leftbar.php');?>
+        <?php include_once('includes/leftbar.php');?>
 
         <div id="page-wrapper" class="gray-bg">
              <?php include_once('includes/header.php');?>
-        <div class="row border-bottom">
-        
-        </div>
-            <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="row border-bottom"></div>
+
+        <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
                 <h2>Food Items</h2>
                 <ol class="breadcrumb">
@@ -89,30 +102,21 @@ else
         </div>
         
         <div class="wrapper wrapper-content animated fadeInRight">
-            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ibox">
-                        
                         <div class="ibox-content">
-                           <p style="font-size:16px; color:red;"> <?php if($msg){
-    echo $msg;
-  }  ?> </p>
-
+                           <p style="font-size:16px; color:red;"> <?php if($msg){ echo $msg;} ?> </p>
                             <form id="submit" action="#" class="wizard-big" method="post" name="submit" enctype="multipart/form-data">
                                     <fieldset>
                                           <div class="form-group row"><label class="col-sm-2 col-form-label">Food Category:</label>
                                                 <div class="col-sm-10"><select name='foodcategory' id="foodcategory" class="form-control white_bg" required="true">
-     
-      <?php
-      
-      $query=mysqli_query($con,"select * from  tblcategory");
-              while($row=mysqli_fetch_array($query))
-              {
-              ?>    
-              <option value="<?php echo $row['CategoryName'];?>"><?php echo $row['CategoryName'];?></option>
-                  <?php } ?>  
-   </select></div>
+                                                <?php
+                                                    $query=mysqli_query($con,"select * from  tblcategory");
+                                                    while($row=mysqli_fetch_array($query)) {?>
+                                                        <option value="<?php echo $row['CategoryName'];?>"><?php echo $row['CategoryName'];?></option>
+                                                      <?php } ?>
+                                                    </select></div>
                                             </div>
                                             <div class="form-group row"><label class="col-sm-2 col-form-label">Item Name:</label>
                                                 <div class="col-sm-10"><input type="text" class="form-control" name="itemname" required="true"></div>
@@ -124,17 +128,20 @@ else
                                                  	</textarea>
                                                 </div>
                                             </div>
+
                                             <div class="form-group row"><label class="col-sm-2 col-form-label">Image</label>
                                                 <div class="col-sm-10"><input type="file" name="itemimages" required="true"></div>
                                             </div>
+
                                             <div class="form-group row"><label class="col-sm-2 col-form-label">Quantity:</label>
                                                 <div class="col-sm-10"><input type="text" class="form-control" name="quantity" required="true"></div>
                                             </div>
+
                                             <div class="form-group row"><label class="col-sm-2 col-form-label">Price:</label>
                                                 <div class="col-sm-10"><input type="text" class="form-control" name="price" required="true"></div>
                                             </div>
-                                           
-                                        </fieldset>
+
+                                    </fieldset>
 
                                 </fieldset>
                                 

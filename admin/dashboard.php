@@ -4,8 +4,9 @@ error_reporting(0);
 include('includes/dbconnection.php');
 if (strlen($_SESSION['fosaid']==0)) {
   header('location:logout.php');
-  } 
-     ?>
+  }
+//  echo session_id();
+  ?>
 
 <!DOCTYPE html>
 <html>
@@ -26,25 +27,35 @@ if (strlen($_SESSION['fosaid']==0)) {
 </head>
 
 <body>
+<!--    --><?php //echo '<script type="text/javascript">alert("'.$_SESSION['fosaid'].'");</script>'; ?>
+<!--    --><?php //print_r($_SESSION) ?>
+
+<?php
+$id = $_SESSION['fosaid'];
+$squerry = mysqli_query($con,"select * from tbladmin where ID = $id");
+$roww = mysqli_fetch_array($squerry);
+$uid=$roww['UID'];
+//echo '<script type="text/javascript">alert("'.$uid.'");</script>';
+?>
     <div id="wrapper">
-<?php include_once('includes/leftbar.php');?>
+        <?php include_once('includes/leftbar.php');?>
 
         <div id="page-wrapper" class="gray-bg">
        <?php include_once('includes/header.php');?>
             <div class="wrapper wrapper-content">
         <div class="row">
                     <div class="col-lg-4">
-                        <div class="ibox ">
+                        <div class="ibox">
                             <div class="ibox-title">
-                                <?php $query=mysqli_query($con,"Select * from tblorderaddresses");
-$totalorder=mysqli_num_rows($query);
-?>
-<a class="text-muted text-uppercase m-b-20" href="all-order.php" style="font-size: 20px"><strong>Total Order</strong></a>
-                                <h5></h5>
+                                <?php
+                                    $query=mysqli_query($con,"Select * from tblorderaddresses where RestaurantID = '$uid'");
+                                    $totalorder=mysqli_num_rows($query);
+                                    ?>
+                                <a class="text-muted text-uppercase m-b-20" href="all-order.php" style="font-size: 20px"><strong>Total Order</strong></a>
+<!--                                <h5></h5>-->
                             </div>
                             <div class="ibox-content">
                                 <h1 class="no-margins"><?php echo $totalorder;?></h1>
-                                
                                 <small>Total order</small>
                             </div>
                         </div>
@@ -52,12 +63,11 @@ $totalorder=mysqli_num_rows($query);
                     <div class="col-lg-4">
                         <div class="ibox ">
                             <div class="ibox-title">
-                                <?php $query1=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus is null");
-$notconfirmedorder=mysqli_num_rows($query1);
-?>
-<a class="text-muted text-uppercase m-b-20" href="notconfirmedyet.php" style="font-size: 20px"><strong>New Order</strong></a>
-
-
+                                <?php
+                                    $query1=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus is null and RestaurantID = '$uid'");
+                                    $notconfirmedorder=mysqli_num_rows($query1);
+                                    ?>
+                                    <a class="text-muted text-uppercase m-b-20" href="notconfirmedyet.php" style="font-size: 20px"><strong>New Order</strong></a>
                             </div>
                             <div class="ibox-content">
                                 <h1 class="no-margins"><?php echo $notconfirmedorder;?></h1>
@@ -68,114 +78,90 @@ $notconfirmedorder=mysqli_num_rows($query1);
                     <div class="col-lg-4">
                         <div class="ibox ">
                             <div class="ibox-title">
-                                <?php $query2=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Order Confirmed'");
-$conforder=mysqli_num_rows($query2);
-?>
-      <a class="text-muted text-uppercase m-b-20" href="confirmed-order.php" style="font-size: 20px"><strong>Confirmed Order</strong></a>                          
-                                
+                                <?php
+                                    $query2=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Order Confirmed' and RestaurantID = '$uid'");
+                                    $conforder=mysqli_num_rows($query2);
+                                    ?>
+                                    <a class="text-muted text-uppercase m-b-20" href="confirmed-order.php" style="font-size: 20px"><strong>Confirmed Order</strong></a>
                             </div>
                             <div class="ibox-content">
                                 <h1 class="no-margins"><?php echo $conforder;?></h1>
-                                
                                 <small>Confirmed Order</small>
                             </div>
                         </div>
                     </div>
-           
         </div>
-          <div class="row">
-
-         <div class="col-lg-4">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-                                <?php $query3=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Food being Prepared'");
-$beigpre=mysqli_num_rows($query3);
-?>
-<a class="text-muted text-uppercase m-b-20" href="foodbeingprepared.php" style="font-size: 20px"><strong>Food being Prepared</strong></a>
-                               
-                              
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins"><?php echo $beigpre;?></h1>
-                                <small>Food being Prepared</small>
-                            </div>
-                        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <?php
+                            $query3=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Food being Prepared' and RestaurantID = '$uid'");
+                            $beigpre=mysqli_num_rows($query3);
+                            ?>
+                        <a class="text-muted text-uppercase m-b-20" href="foodbeingprepared.php" style="font-size: 20px"><strong>Food being Prepared</strong></a>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins"><?php echo $beigpre;?></h1>
+                        <small>Food being Prepared</small>
+                    </div>
+                </div>
             </div>
 
-                    <div class="col-lg-4">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-                                <?php $query4=mysqli_query($con,"Select * from tblorderaddresses where OrderFinalStatus ='Food Pickup'");
-$foodpickup=mysqli_num_rows($query4);
-?>
-<a class="text-muted text-uppercase m-b-20" href="food-pickup.php" style="font-size: 20px"><strong> Food Pickup</strong></a>
-                                
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins"><?php echo $foodpickup;?></h1>
-                                
+            <div class="col-lg-4">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <?php
+                            $query4=mysqli_query($con,"Select * from tblorderaddresses where OrderFinalStatus ='Food Pickup' AND RestaurantID = '$uid'");
+                            $foodpickup=mysqli_num_rows($query4);
+                            ?>
+                            <a class="text-muted text-uppercase m-b-20" href="food-pickup.php" style="font-size: 20px"><strong> Food Pickup</strong></a>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins"><?php echo $foodpickup;?></h1>
                                 <small> Food Pickup</small>
-                            </div>
-                        </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-                                <?php $query5=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Food Delivered'");
-$fooddel=mysqli_num_rows($query5);
-?>
-<a class="text-muted text-uppercase m-b-20" href="food-delivered.php" style="font-size: 20px"><strong>Total Food Deliver</strong></a>
+                </div>
+            </div>
 
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins"><?php echo $fooddel;?></h1>
-                                <small>Total Food Deliver</small>
-                            </div>
-                        </div>
+            <div class="col-lg-4">
+                <div class="ibox ">
+                    <div class="ibox-title">
+                        <?php
+                            $query5=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Food Delivered' AND RestaurantID = '$uid'");
+                            $fooddel=mysqli_num_rows($query5);
+                            ?>
+                            <a class="text-muted text-uppercase m-b-20" href="food-delivered.php" style="font-size: 20px"><strong>Total Food Deliver</strong></a>
                     </div>
-                    
+                    <div class="ibox-content">
+                        <h1 class="no-margins"><?php echo $fooddel;?></h1>
+                        <small>Total Food Deliver</small>
+                    </div>
+                </div>
+            </div>
 
            <div class="col-lg-4">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-<?php $query1=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus='Order Cancelled'");
-$notconfirmedorder=mysqli_num_rows($query1);
-?>
-<a class="text-muted text-uppercase m-b-20" href="canclled-order.php" style="font-size: 20px"><strong>Cancelled Order</strong></a>
+               <div class="ibox ">
+                   <div class="ibox-title">
+                    <?php
+                        $query1=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus='Order Cancelled' AND RestaurantID = '$uid'");
+                        $notconfirmedorder=mysqli_num_rows($query1);
+                        ?>
+                     <a class="text-muted text-uppercase m-b-20" href="canclled-order.php" style="font-size: 20px"><strong>Cancelled Order</strong></a>
+                   </div>
+                   <div class="ibox-content">
+                       <h1 class="no-margins"><?php echo $notconfirmedorder;?></h1>
+                       <small>Cancelled Order</small>
+                   </div>
+               </div>
+           </div>
 
-
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins"><?php echo $notconfirmedorder;?></h1>
-                                <small>Cancelled Order</small>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-4">
-                        <div class="ibox ">
-                            <div class="ibox-title">
-                                <?php $query=mysqli_query($con,"Select * from tbluser");
-$usercount=mysqli_num_rows($query);
-?>
-<a class="text-muted text-uppercase m-b-20" href="user-detail.php" style="font-size: 20px"><strong>Total Regd. User</strong></a>
-                         
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins"><?php echo $usercount;?></h1>
-                                
-                                <small>Total Regd. User</small>
-                            </div>
-                        </div>
-                    </div>
-                   
-                   
         </div>
+    </div>
+
+            <?php include_once('includes/footer.php');?>
         </div>
-      <?php include_once('includes/footer.php');?>
-        </div>
-            </div>
+    </div>
 
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
