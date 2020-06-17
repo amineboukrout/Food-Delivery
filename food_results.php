@@ -47,6 +47,10 @@ if($query)
 </head>
 
 <body>
+<?php
+    $theUID = $_POST['UID'];
+    echo '<script type="text/javascript">alert("'.$theUID.'");</script>';
+?>
     <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
         <!--header starts-->
         <header id="header" class="header-scroll top-header headrom">
@@ -137,7 +141,7 @@ $offset = ($pageno-1) * $no_of_records_per_page;
         $result = mysqli_query($con,$total_pages_sql);
         $total_rows = mysqli_fetch_array($result)[0];
         $total_pages = ceil($total_rows / $no_of_records_per_page);
-        $sql = "SELECT * FROM tblfood LIMIT $offset, $no_of_records_per_page";
+        $sql = "SELECT * FROM tblfood WHERE tblfood.RestaurantID='$theUID' LIMIT $offset, $no_of_records_per_page";
         $res_data = mysqli_query($con,$sql);
         $cnt=1;
         while($row = mysqli_fetch_array($res_data)){?>

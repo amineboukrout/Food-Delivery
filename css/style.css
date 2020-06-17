@@ -70,6 +70,33 @@ a:hover {
     color: #404048;
 }
 
+.buttonUID {
+    width: auto;
+    height: 30px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    align-content: left;
+    padding: 5px 5px 5px 0;
+}
+
+.buttonUIDlogo {
+    height: 250px;
+    width: 300px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    align-content: left;
+    padding: 5px 5px 5px 0;
+}
+
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -660,7 +687,7 @@ hr {
 }
 
 .food-item-wrap .product-name {
-    margin-bottom: 20px;
+    margin:in-bottom: 20px;
 }
 
 .food-item-wrap .content {

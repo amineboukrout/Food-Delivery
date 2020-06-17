@@ -6,7 +6,7 @@
                      <ul class="nav navbar-nav">
                         <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a> </li>
                      
-                        <li class="nav-item"> <a class="nav-link" href="food_results0.php?pageno=1">Food Menu</a> </li>
+<!--                        <li class="nav-item"> <a class="nav-link" href="food_results.php?pageno=1">Food Menu</a> </li>-->
                          <li class="nav-item"> <a class="nav-link" href="restaurant_results.php?pageno=1">Restaurants</a> </li>
 
                       <?php if (strlen($_SESSION['fosuid']==0)) {?>

@@ -139,15 +139,26 @@ if($query)
                                         $cnt=1;
                                         while($row = mysqli_fetch_array($res_data)){?>
 <!--                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">-->
-                                    <div class="col-xs-12 col-sm-6 col-md-4 food-item">
-                                        <div class="food-item-wrap">
-                                            <div class="figure-wrap bg-image"><img src="admin/itemimages/<?php echo $row['Logo'];?>" width="400" height="180"></div>
-                                            <div class="content">
-                                                <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['RestaurantName'];?></a></h5>
-                                                <div class="product-name"><?php echo substr($row['Category'],0,40);?></div>
+                                            <div class="col-xs-12 col-sm-6 col-md-4 food-item">
+                                                <div class="food-item-wrap">
+                                                    <form method="post" action="food_results.php" name="UID" value="<?php echo $row['UID'] ?>">
+                                                        <div class="figure-wrap bg-image">
+                                                            <button class="buttonUIDlogo" type="submit" name="UID" value="<?php echo $row['UID'] ?>">
+                                                                <img src="admin/itemimages/<?php echo $row['Logo'];?>" width="400" height="180">
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                    <div class="content">
+                                                        <!--                                        <h5><a href="food-detail.php?fid=--><?php //echo $row['ID'];?><!--">--><?php //echo $row['RestaurantName'];?><!--</a></h5>-->
+                                                        <form method="post" action="food_results.php">
+                                                            <!--                                            <input name="UID" type="submit" value="--><?php //echo $row['UID'] ?><!--">-->
+                                                            <button class="buttonUID" type="submit" name="UID" value="<?php echo $row['UID'] ?>"><?php echo $row['RestaurantName']; ?></button>
+                                                            <!--                                            <a value="--><?php //echo $row['UID'] ?><!--" name="UID" class="button"-->
+                                                            <div class="product-name"><?php echo substr($row['Category'],0,40);?></div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
                                     <?php } ?>
 
                                 <!-- Each popular food item starts -->
