@@ -35,7 +35,16 @@ if($query)
     <link href="css/animsition.min.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet"> </head>
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+    .center{
+        margin: auto;
+        width: 100%;
+        padding: 10px;
+    }
+    </style>
+</head>
 
 <body>
     <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
@@ -66,7 +75,9 @@ if($query)
     </div>
 </div>
 <!-- //results show -->
+
             <section class="restaurants-page">
+                <div class="center">
                 <div class="container">
                     <div class="row">
 <!--                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">-->
@@ -129,19 +140,11 @@ $offset = ($pageno-1) * $no_of_records_per_page;
         $sql = "SELECT * FROM tblfood LIMIT $offset, $no_of_records_per_page";
         $res_data = mysqli_query($con,$sql);
         $cnt=1;
-        while($row = mysqli_fetch_array($res_data)){
-
-
-
-
-?>
-   
-                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
+        while($row = mysqli_fetch_array($res_data)){?>
+            <div class="col-xs-9 col-sm-6 col-md-6 col-lg-4 food-item">
                                     <div class="food-item-wrap">
-                                        <div class="figure-wrap bg-image"> <img src="admin/itemimages/<?php echo $row['Image'];?>" width="300" height="180">
-                                       
-                                           
-                                            
+                                        <div class="figure-wrap bg-image">
+                                            <img src="admin/itemimages/<?php echo $row['Image'];?>" width="300" height="180">
                                         </div>
                                         <div class="content">
                                             <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['ItemName'];?></a></h5>
@@ -186,6 +189,7 @@ $offset = ($pageno-1) * $no_of_records_per_page;
                             </div>
                             <!-- end:right row -->
                         </div>
+                </div>
                     </div>
                 </div>
             </section>
