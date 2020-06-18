@@ -67,26 +67,26 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
                     <div class="row">
                         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-3">
                             <div class="sidebar clearfix m-b-20">
-                                <div class="main-block">
-                                    <div class="sidebar-title white-txt">
-                                        <h6>Food Category</h6> <i class="fa fa-cutlery pull-right"></i> </div>
-                                   
-                                    <?php
-                                    $query=mysqli_query($con,"select * from  tblcategory");
-              while($row=mysqli_fetch_array($query)){?>
-              
-                               <ul>
-                                            
-                                            <li>
-                                                <label class="custom-control custom-checkbox">
-                                                    <span class="custom-control-description"><a href="viewfood-categorywise.php?catid=<?php echo $row['CategoryName'];?>"><?php echo $row['CategoryName'];?></a></span> </label>
-                                            </li>
-                                    
-                                        
-                                        </ul>
-                                        <?php } ?>
-                                    <div class="clearfix"></div>
-                                </div>
+<!--                                <div class="main-block">-->
+<!--                                    <div class="sidebar-title white-txt">-->
+<!--                                        <h6>Food Category</h6> <i class="fa fa-cutlery pull-right"></i> </div>-->
+<!--                                   -->
+<!--                                    --><?php
+//                                    $query=mysqli_query($con,"select * from  tblcategory");
+//              while($row=mysqli_fetch_array($query)){?>
+<!--              -->
+<!--                               <ul>-->
+<!--                                            -->
+<!--                                            <li>-->
+<!--                                                <label class="custom-control custom-checkbox">-->
+<!--                                                    <span class="custom-control-description"><a href="viewfood-categorywise.php?catid=--><?php //echo $row['CategoryName'];?><!--">--><?php //echo $row['CategoryName'];?><!--</a></span> </label>-->
+<!--                                            </li>-->
+<!--                                    -->
+<!--                                        -->
+<!--                                        </ul>-->
+<!--                                        --><?php //} ?>
+<!--                                    <div class="clearfix"></div>-->
+<!--                                </div>-->
                                 <!-- end:Sidebar nav -->
                                 <div class="widget-delivery">
                                     

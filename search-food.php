@@ -18,8 +18,7 @@ if(isset($_POST['submit'])) {
 $foodid=$_POST['foodid'];
 $userid= $_SESSION['fosuid'];
 $query=mysqli_query($con,"insert into tblorders(UserId,FoodId) values('$userid','$foodid') ");
-if($query)
-{
+if($query) {
  echo "<script>alert('Food has been added in to the cart');</script>";   
 } else {
  echo "<script>alert('Something went wrong.');</script>";      
@@ -86,9 +85,9 @@ if($query)
                                  <form name="search" method="post" action="search-food.php">
                                 <div class="main-block">
                                     <div class="sidebar-title white-txt">
-                                        <h6>Search Food</h6> <i class="fa fa-cutlery pull-right"></i> </div>
+                                        <h6>Find Restaurants</h6> <i class="fa fa-cutlery pull-right"></i> </div>
                                     <div class="input-group">
-                                        <input type="text" class="form-control search-field" placeholder="Search your favorite food" name="searchdata" id="searchdata"> <span class="input-group-btn"> 
+                                        <input type="text" class="form-control search-field" placeholder="Search Restaurant" name="searchdata" id="searchdata"> <span class="input-group-btn">
                                  <button class="btn btn-secondary search-btn" type="submit" name="search"><i class="fa fa-search"></i></button> 
                                  </span> </div>
                                      </div>
@@ -98,15 +97,21 @@ if($query)
 
                                     <div class="main-block" style="margin-top: 10%">
                                     <div class="sidebar-title white-txt">
-                                        <h6>Food Categories</h6> <i class="fa fa-cutlery pull-right"></i> </div>
+                                        <h6>Restaurants</h6> <i class="fa fa-cutlery pull-right"></i>
+                                    </div>
+
                                <?php
-                               $query=mysqli_query($con,"select * from  tblrestaurants");
+                               $query=mysqli_query($con,"select * from tblrestaurants");
                                while($row=mysqli_fetch_array($query)) {?>
                                         <ul>
                                             <li>
                                                 <label class="custom-control custom-checkbox">
-                                                    <span class="custom-control-description"><a href="viewfood-categorywise.php?editid=<?php echo $row['Category'];?>">
-                                                            <?php echo $row['RestaurantName'];?></a></span> </label>
+                                                    <span class="custom-control-description">
+                                                        <form method="post" action="food_results.php">
+                                                            <button class="buttonUID" type="submit" name="UID" value="<?php echo $row['UID'] ?>"><?php echo $row['RestaurantName']; ?></button>
+                                                        </form>
+                                                    </span>
+                                                </label>
                                             </li>
                                         </ul>
                               <?php } ?>
@@ -122,29 +127,28 @@ if($query)
                                 <!-- Each popular food item starts -->
                                 <?php
                                     $searchdata=$_POST['searchdata'];
-                                    $sql = "SELECT * FROM tblfood where ItemName like '%$searchdata%' ";
+                                    $sql = "SELECT * FROM tblrestaurants where RestaurantName like '%$searchdata%' ";
                                     $res_data = mysqli_query($con,$sql);
                                     $cnt=1;
                                     while($row = mysqli_fetch_array($res_data)){?>
-   
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
                                     <div class="food-item-wrap">
-                                        <div class="figure-wrap bg-image"> <img src="admin/itemimages/<?php echo $row['Image'];?>" width="300" height="180">
-                                        </div>
+                                        <form method="post" action="food_results.php" name="UID" value="<?php echo $row['UID'] ?>">
+                                            <div class="figure-wrap bg-image">
+                                                <button class="buttonUIDlogo" type="submit" name="UID" value="<?php echo $row['UID'] ?>">
+                                                    <img src="admin/itemimages/<?php echo $row['Logo'];?>" width="400" height="180">
+                                                </button>
+                                            </div>
+                                        </form>
                                         <div class="content">
-                                            <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['ItemName'];?></a></h5>
-                                            <div class="product-name"><?php echo substr($row['ItemDes'],0,50);?></div>
-                                            <div class="price-btn-block"> <span class="price">Rs. <?php echo $row['ItemPrice'];?></span> <?php if($_SESSION['fosuid']==""){?>
-<a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>
-<?php } else {?>
-    <form method="post"> 
-    <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>">   
-<button type="submit" name="submit" class="btn theme-btn-dash pull-right">Order Now</button>
-  </form> 
-<?php }?>
-             </div>
+                                            <!--                                        <h5><a href="food-detail.php?fid=--><?php //echo $row['ID'];?><!--">--><?php //echo $row['RestaurantName'];?><!--</a></h5>-->
+                                            <form method="post" action="food_results.php">
+                                                <!--                                            <input name="UID" type="submit" value="--><?php //echo $row['UID'] ?><!--">-->
+                                                <button class="buttonUID" type="submit" name="UID" value="<?php echo $row['UID'] ?>"><?php echo $row['RestaurantName']; ?></button>
+                                                <!--                                            <a value="--><?php //echo $row['UID'] ?><!--" name="UID" class="button"-->
+                                                <div class="product-name"><?php echo substr($row['Category'],0,40);?></div>
+                                            </form>
                                         </div>
-                                  
                                     </div>
                                 </div>
                                     <?php } ?>

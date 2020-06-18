@@ -6,12 +6,12 @@ if(isset($_POST['submit']))
 {
 $foodid=$_POST['foodid'];
 $userid= $_SESSION['fosuid'];
-$query=mysqli_query($con,"insert into tblorders(UserId,FoodId) values('$userid','$foodid') ");
-if($query)
-{
+$theUIDD=$_POST['UID'];
+$query=mysqli_query($con,"insert into tblorders(UserId,FoodId, RestaurantID) values('$userid','$foodid','$theUIDD') ");
+if($query) {
  echo "<script>alert('Food has been added in to the cart');</script>";   
 } else {
- echo "<script>alert('Something went wrong.');</script>";      
+ echo "<script>alert('Something went wrong..........');</script>";
 }
 }
 
@@ -81,11 +81,10 @@ if($query)
 <!-- //results show -->
 
             <section class="restaurants-page">
-                <div class="center">
                 <div class="container">
                     <div class="row">
-<!--                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">-->
-<!--                            <div class="sidebar clearfix m-b-20">-->
+                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                            <div class="sidebar clearfix m-b-20">
 <!--                                 <form name="search" method="post" action="search-food.php">-->
 <!--                                <div class="main-block">-->
 <!--                                    <div class="sidebar-title white-txt">-->
@@ -113,15 +112,16 @@ if($query)
 <!--                                        </ul>-->
 <!--                              --><?php //} ?>
 <!--                                    <div class="clearfix"></div>-->
-<!--                                </div>-->
-<!---->
-<!--                            </div>-->
+                                <div class="widget-delivery"></div>
+                                </div>
+                            </div>
 
                             <!-- end:Pricing widget -->
 
                             <!-- end:Widget -->
-                        </div>
-                     <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+
+
+                    <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
                             <div class="row">
                                 <!-- Each popular food item starts -->
                                                         <?php
@@ -153,28 +153,29 @@ $offset = ($pageno-1) * $no_of_records_per_page;
                                         <div class="content">
                                             <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['ItemName'];?></a></h5>
                                             <div class="product-name"><?php echo substr($row['ItemDes'],0,50);?></div>
-                                            <div class="price-btn-block"> <span class="price">Rs. <?php echo $row['ItemPrice'];?></span> 
+                                            <div class="price-btn-block"> <span class="price">Rs. <?php echo $row['ItemPrice'];?></span>
 
 <?php if($_SESSION['fosuid']==""){?>
 <a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>
 <?php } else {?>
-    <form method="post"> 
-    <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>">   
+    <form method="post" action="food_results.php">
+    <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>">
+    <input type="hidden" name="UID" value="<?php echo $theUID;?>">
 <button type="submit" name="submit" class="btn theme-btn-dash pull-right">Order Now</button>
-  </form> 
+  </form>
 <?php }?>
                                               </div>
                                         </div>
-                                  
+
                                     </div>
                                 </div>
                                     <?php } ?>
-                              
+
                                 <!-- Each popular food item starts -->
-                                
+
                                 <div class="col-xs-12" align="center">
                                     <nav aria-label="...">
-                                      
+
 
 <ul class="pagination" >
         <li class="page-link"><a href="?pageno=1">First</a></li>

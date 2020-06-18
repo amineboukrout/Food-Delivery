@@ -7,6 +7,9 @@ if (strlen($_SESSION['fosuid']==0)) {
   } else{ 
 //placing order
 
+    $uidquery = mysqli_query($con, "select tblorders.RestaurantID from tblorders where tblorders.IsOrderPlaced is null");
+    $theUID = mysqli_fetch_array($uidquery)['RestaurantID'];
+
 if(isset($_POST['placeorder'])){
     //getting address
     $fnaobno=$_POST['flatbldgnumber'];
@@ -18,7 +21,7 @@ if(isset($_POST['placeorder'])){
     //genrating order number
     $orderno= mt_rand(100000000, 999999999);
     $query="update tblorders set OrderNumber='$orderno',IsOrderPlaced='1' where UserId='$userid' and IsOrderPlaced is null;";
-    $query.="insert into tblorderaddresses(UserId,Ordernumber,Flatnobuldngno,StreetName,Area,Landmark,City) values('$userid','$orderno','$fnaobno','$street','$area','$lndmark','$city');";
+    $query.="insert into tblorderaddresses(UserId,Ordernumber,Flatnobuldngno,StreetName,Area,Landmark,City,RestaurantID) values('$userid','$orderno','$fnaobno','$street','$area','$lndmark','$city','$theUID');";
 
     $result = mysqli_multi_query($con, $query);
     if ($result) {
@@ -58,7 +61,7 @@ echo "<script>window.location.href='cart.php'</script>";
     <link href="css/style.css" rel="stylesheet"> </head>
 
 <body>
-    <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
+   <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
         <!--header starts-->
         <header id="header" class="header-scroll top-header headrom">
             <!-- .navbar -->
@@ -105,18 +108,18 @@ echo "<script>window.location.href='cart.php'</script>";
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                         <div class="sidebar clearfix m-b-20">
                             <div class="main-block">
-                                <div class="sidebar-title white-txt">
-                                    <h6>Food Categories</h6> <i class="fa fa-cutlery pull-right"></i> </div>
-                                    <?php
-                                        $query=mysqli_query($con,"select * from  tblcategory");
-                                            while($row=mysqli_fetch_array($query)){?>
-                                                <ul>
-                                            <li>
-                                                <label class="custom-control custom-checkbox">
-                                                    <span class="custom-control-description"><a href="viewfood-categorywise.php?catid=<?php echo $row['CategoryName'];?>"><?php echo $row['CategoryName'];?></a></span> </label>
-                                            </li>
-                                        </ul>
-                                        <?php } ?>
+<!--                                <div class="sidebar-title white-txt">-->
+<!--                                    <h6>Food Categories</h6> <i class="fa fa-cutlery pull-right"></i> </div>-->
+<!--                                    --><?php
+//                                        $query=mysqli_query($con,"select * from  tblcategory");
+//                                            while($row=mysqli_fetch_array($query)){?>
+<!--                                                <ul>-->
+<!--                                            <li>-->
+<!--                                                <label class="custom-control custom-checkbox">-->
+<!--                                                    <span class="custom-control-description"><a href="viewfood-categorywise.php?catid=--><?php //echo $row['CategoryName'];?><!--">--><?php //echo $row['CategoryName'];?><!--</a></span> </label>-->
+<!--                                            </li>-->
+<!--                                        </ul>-->
+<!--                                        --><?php //} ?>
                                 <div class="clearfix"></div>
                             </div>
                             <!-- end:Sidebar nav -->
@@ -223,11 +226,12 @@ echo "<script>window.location.href='cart.php'</script>";
             </div>
             <!-- end:Container -->
           
-            <!-- start: FOOTER -->
-        <?php include('includes/footer.php');?>
-            <!-- end:Footer -->
+
         </div>
         <!-- end:page wrapper -->
+            <!-- start: FOOTER -->
+            <?php include('includes/footer.php');?>
+            <!-- end:Footer -->
     </div>
     <!--/end:Site wrapper -->
 

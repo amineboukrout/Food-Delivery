@@ -101,8 +101,11 @@ if($query)
                                                     <li>
                                                         <label class="custom-control custom-checkbox">
                                                             <span class="custom-control-description">
-                                                                <a href="viewfood-categorywise.php?catid=<?php echo $row['RestaurantName'];?>">
-                                                                    <?php echo $row['RestaurantName'];?></a></span> </label>
+                                                                <form method="post" action="food_results.php">
+                                                                    <button class="buttonUID" type="submit" name="UID" value="<?php echo $row['UID'] ?>"><?php echo $row['RestaurantName']; ?></button>
+                                                                </form>
+                                                            </span>
+                                                        </label>
                                                     </li>
                                                 </ul>
                                         <?php } ?>
@@ -151,6 +154,7 @@ if($query)
                                                     <div class="content">
                                                         <!--                                        <h5><a href="food-detail.php?fid=--><?php //echo $row['ID'];?><!--">--><?php //echo $row['RestaurantName'];?><!--</a></h5>-->
                                                         <form method="post" action="food_results.php">
+
                                                             <!--                                            <input name="UID" type="submit" value="--><?php //echo $row['UID'] ?><!--">-->
                                                             <button class="buttonUID" type="submit" name="UID" value="<?php echo $row['UID'] ?>"><?php echo $row['RestaurantName']; ?></button>
                                                             <!--                                            <a value="--><?php //echo $row['UID'] ?><!--" name="UID" class="button"-->
