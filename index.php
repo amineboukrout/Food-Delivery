@@ -28,7 +28,7 @@ if($query)
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>Food Ordering System</title>
+    <title>DeliveryJINI</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -63,15 +63,27 @@ if($query)
                     <h5 class="font-white space-xs">Find your favourite Restaurant!</h5>
 
                     <div class="banner-form">
-                        <form class="form-inline" method="post" name="search" action="search-food.php"> <!--action="search-food.php">-->
+                        <form class="form-inline" method="post" name="search" action="search-restaurant.php"> <!--action="search-food.php">-->
                             <div class="form-group">
                                 <label class="sr-only" for="exampleInputAmount">I would like to eat at....</label>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" name="searchdata" id="searchdata" placeholder="I would like to eat at....">
                                 </div>
                             </div>
-                            <button onclick="location.href='search-food.php'" type="submit" name="search" class="btn theme-btn btn-lg">Search Restaurant</button>
+                            <button onclick="location.href='search-restaurant.php'" type="submit" name="search" class="btn theme-btn btn-lg">Search</button>
 <!--                            <button onclick="location.href='insertintotest.php'">Search food</button>-->
+                        </form>
+
+                        <br>
+                        <form class="form-inline" method="post" name="search" action="search-area.php"> <!--action="search-food.php">-->
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputAmount">I am in area....</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" name="searchdata" id="searchdata" placeholder="I am in area....">
+                                </div>
+                            </div>
+                            <button onclick="location.href='search-food.php'" type="submit" name="search" class="btn theme-btn btn-lg">Search</button>
+                            <!--                            <button onclick="location.href='insertintotest.php'">Search food</button>-->
                         </form>
                     </div>
 

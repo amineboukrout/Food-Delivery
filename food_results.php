@@ -11,7 +11,7 @@ $query=mysqli_query($con,"insert into tblorders(UserId,FoodId, RestaurantID) val
 if($query) {
  echo "<script>alert('Food has been added in to the cart');</script>";   
 } else {
- echo "<script>alert('Something went wrong..........');</script>";
+ echo "<script>alert('Something went wrong.');</script>";
 }
 }
 
@@ -28,7 +28,8 @@ if($query) {
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>Food Ordering System</title>
+    <title>DeliveryJINI</title>
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">

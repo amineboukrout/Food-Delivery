@@ -3,7 +3,7 @@
                   <!-- top footer statrs -->
                   <div class="row top-footer">
                      <div class="col-xs-12 col-sm-3 footer-logo-block color-gray">
-                        <a href="index.php" style="font-size:20px;"> Food Ordering System </a><br /> <span>Order Delivery  </span> 
+                        <a href="index.php" style="font-size:20px;"> DeliveryJINI </a><br /> <span>Order Delivery  </span>
                      </div>
                      <div class="col-xs-12 col-sm-2 about color-gray">
                         <h5>About Us</h5>

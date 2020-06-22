@@ -54,7 +54,7 @@ function printArray($array){
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>Food Ordering System</title>
+    <title>DeliveryJINI</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -99,7 +99,7 @@ function printArray($array){
                     <div class="row">
                         <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
                             <div class="sidebar clearfix m-b-20">
-                                 <form name="search" method="post" action="search-food.php">
+                                 <form name="search" method="post" action="search-restaurant.php">
                                 <div class="main-block">
                                     <div class="sidebar-title white-txt">
                                         <h6>Search Restaurant</h6> <i class="fa fa-cutlery pull-right"></i> </div>
@@ -148,7 +148,6 @@ function printArray($array){
                                     while($row = mysqli_fetch_array($res_data)){?>
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
                                     <div class="food-item-wrap">
-                                        <?php phpAlert($cnt) ?>
                                         <div class="figure-wrap bg-image"> <img src="admin/itemimages/<?php echo $row['Logo'];?>" width="300" height="180">
                                         </div>
                                         <div class="content">

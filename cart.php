@@ -39,7 +39,8 @@ echo "<script>window.location.href='cart.php'</script>";
 
 }
 
-    ?>
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +52,7 @@ echo "<script>window.location.href='cart.php'</script>";
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>Food Ordering System</title>
+    <title>DeliveryJINI</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -70,9 +71,7 @@ echo "<script>window.location.href='cart.php'</script>";
         </header>
         <div class="page-wrapper">
             <!-- top Links -->
-            <div class="top-links">
-                
-            </div>
+            <div class="top-links"></div>
             <!-- end:Top links -->
             <!-- start: Inner page hero -->
             <section class="inner-page-hero bg-image" data-image-src="images/decouvrez-l-experience-food-d-airbnb.jpg">
@@ -93,6 +92,7 @@ echo "<script>window.location.href='cart.php'</script>";
                     </div>
                 </div>
             </section>
+
             <!-- end:Inner page hero -->
             <div class="breadcrumb">
                 <div class="container">
@@ -126,7 +126,6 @@ echo "<script>window.location.href='cart.php'</script>";
                             
                         </div>
                         <!-- end:Left Sidebar -->
-                        
                     </div>
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
                         <div class="menu-widget m-b-30">

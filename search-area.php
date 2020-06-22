@@ -37,7 +37,7 @@ if($query) {
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>Food Ordering System</title>
+    <title>DeliveryJINI</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -82,33 +82,31 @@ if($query) {
                     <div class="row">
                         <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
                             <div class="sidebar clearfix m-b-20">
-                                 <form name="search" method="post" action="search-food.php">
+                                 <form name="search" method="post" action="search-area.php">
                                 <div class="main-block">
                                     <div class="sidebar-title white-txt">
-                                        <h6>Find Restaurants</h6> <i class="fa fa-cutlery pull-right"></i> </div>
+                                        <h6>Find Area</h6> <i class="fa fa-cutlery pull-right"></i> </div>
                                     <div class="input-group">
-                                        <input type="text" class="form-control search-field" placeholder="Search Restaurant" name="searchdata" id="searchdata"> <span class="input-group-btn">
+                                        <input type="text" class="form-control search-field" placeholder="Search Area" name="searchdata" id="searchdata"> <span class="input-group-btn">
                                  <button class="btn btn-secondary search-btn" type="submit" name="search"><i class="fa fa-search"></i></button> 
                                  </span> </div>
                                      </div>
                                      </form>
 
-
-
                                     <div class="main-block" style="margin-top: 10%">
                                     <div class="sidebar-title white-txt">
-                                        <h6>Restaurants</h6> <i class="fa fa-cutlery pull-right"></i>
+                                        <h6>Areas</h6> <i class="fa fa-cutlery pull-right"></i>
                                     </div>
 
                                <?php
-                               $query=mysqli_query($con,"select * from tblrestaurants");
+                               $query=mysqli_query($con,"select * from tblrestaurants where LENGTH(tblrestaurants.Area) > 0");
                                while($row=mysqli_fetch_array($query)) {?>
                                         <ul>
                                             <li>
                                                 <label class="custom-control custom-checkbox">
                                                     <span class="custom-control-description">
                                                         <form method="post" action="food_results.php">
-                                                            <button class="buttonUID" type="submit" name="UID" value="<?php echo $row['UID'] ?>"><?php echo $row['RestaurantName']; ?></button>
+                                                            <button class="buttonUID" type="submit" name="area" value="<?php echo $row['Area'] ?>"><?php echo $row['Area']; ?></button>
                                                         </form>
                                                     </span>
                                                 </label>
@@ -127,7 +125,7 @@ if($query) {
                                 <!-- Each popular food item starts -->
                                 <?php
                                     $searchdata=$_POST['searchdata'];
-                                    $sql = "SELECT * FROM tblrestaurants where RestaurantName like '%$searchdata%' ";
+                                    $sql = "SELECT * FROM tblrestaurants where Area like '%$searchdata%' ";
                                     $res_data = mysqli_query($con,$sql);
                                     $cnt=1;
                                     while($row = mysqli_fetch_array($res_data)){?>
