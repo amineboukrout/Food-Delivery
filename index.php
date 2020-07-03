@@ -145,14 +145,15 @@ if($query)
                 <div class="row">
                     <!-- Each popular food item starts -->
                     <?php
-                        $ret=mysqli_query($con,"select * from tblrestaurants order by rand() limit 9");
+                     $ret=mysqli_query($con,"select * from tblrestaurants order by rand() limit 9");
                         $cnt=1;
-                        while ($row=mysqli_fetch_array($ret)) {?>
+                        while ($row=mysqli_fetch_array($ret)) {
+//                            echo '<script type="text/javascript">alert("'.$row['UID'].'");</script>';?>
                             <div class="col-xs-12 col-sm-6 col-md-4 food-item">
                                 <div class="food-item-wrap">
                                     <form method="post" action="food_results.php" name="UID" value="<?php echo $row['UID'] ?>">
                                         <div class="figure-wrap bg-image">
-                                            <button class="buttonUIDlogo" type="submit" name="UID" value="<?php echo $row['UID'] ?>">
+                                            <button class="buttonUIDlogo" type="submit" name="UID" value="<?php echo $row['UID'] ?>" >
                                             <img src="admin/itemimages/<?php echo $row['Logo'];?>" width="400" height="180">
                                             </button>
                                         </div>

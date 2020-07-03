@@ -11,7 +11,7 @@ if(isset($_POST['login']))
     $ret=mysqli_fetch_array($query);
     if($ret>0){
       $_SESSION['fosaid']=$ret['ID'];
-     header('location:dashboard.php');
+     header('location:dashboard_oiginal.php');
     }
     else{
     $msg="Invalid Details.";

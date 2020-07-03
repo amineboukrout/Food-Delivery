@@ -118,13 +118,17 @@ function printArray($array){
                                <?php
                                $query=mysqli_query($con,"select * from  tblrestaurants");
                                while($row=mysqli_fetch_array($query)) {?>
-                                        <ul>
-                                            <li>
-                                                <label class="custom-control custom-checkbox">
-                                                    <span class="custom-control-description"><a href="viewfood-categorywise.php?editid=<?php echo $row['Category'];?>">
-                                                            <?php echo $row['RestaurantName'];?></a></span> </label>
-                                            </li>
-                                        </ul>
+                                   <ul>
+                                       <li>
+                                           <label class="custom-control custom-checkbox">
+                                                            <span class="custom-control-description">
+                                                                <form method="post" action="food_results.php">
+                                                                    <button class="buttonUID" type="submit" name="UID" value="<?php echo $row['UID'] ?>"><?php echo $row['RestaurantName']; ?></button>
+                                                                </form>
+                                                            </span>
+                                           </label>
+                                       </li>
+                                   </ul>
                               <?php } ?>
                                     <div class="clearfix"></div>
                                 </div>
@@ -138,7 +142,6 @@ function printArray($array){
                                 <!-- Each popular food item starts -->
                                 <?php
                                     $searchdata=$_POST['searchdata'];
-
                                     $sql = "SELECT * FROM tblrestaurants where RestaurantName like '%$searchdata%'";
                                     $res_data = mysqli_query($con, $sql);
 
@@ -146,27 +149,27 @@ function printArray($array){
 //                                    $res_data = mysqli_query($con,$sql);
                                     $cnt=1;
                                     while($row = mysqli_fetch_array($res_data)){?>
-                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 food-item">
-                                    <div class="food-item-wrap">
-                                        <div class="figure-wrap bg-image"> <img src="admin/itemimages/<?php echo $row['Logo'];?>" width="300" height="180">
+                                        <div class="col-xs-12 col-sm-6 col-md-4 food-item">
+                                            <div class="food-item-wrap">
+                                                <form method="post" action="food_results.php" name="UID" value="<?php echo $row['UID'] ?>">
+                                                    <div class="figure-wrap bg-image">
+                                                        <button class="buttonUIDlogo" type="submit" name="UID" value="<?php echo $row['UID'] ?>">
+                                                            <img src="admin/itemimages/<?php echo $row['Logo'];?>" width="400" height="180">
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                <div class="content">
+                                                    <!--                                        <h5><a href="food-detail.php?fid=--><?php //echo $row['ID'];?><!--">--><?php //echo $row['RestaurantName'];?><!--</a></h5>-->
+                                                    <form method="post" action="food_results.php">
+
+                                                        <!--                                            <input name="UID" type="submit" value="--><?php //echo $row['UID'] ?><!--">-->
+                                                        <button class="buttonUID" type="submit" name="UID" value="<?php echo $row['UID'] ?>"><?php echo $row['RestaurantName']; ?></button>
+                                                        <!--                                            <a value="--><?php //echo $row['UID'] ?><!--" name="UID" class="button"-->
+                                                        <div class="product-name"><?php echo substr($row['Category'],0,40);?></div>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="content">
-                                            <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['RestaurantName'];?></a></h5>
-                                            <div class="product-name"><?php echo substr($row['Category'],0,50);?></div>
-<!--                                            <div class="price-btn-block"> <span class="price">Rs. --><?php //echo $row['ItemPrice'];?><!--</span> -->
-<!--                                                --><?php //if($_SESSION['fosuid']==""){?>
-<!--                                                    <a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>-->
-<!--                                                --><?php //} else {?>
-<!--                                                    <form method="post">-->
-<!--                                                    <input type="hidden" name="foodid" value="--><?php //echo $row['ID'];?><!--">-->
-<!--                                                <button type="submit" name="submit" class="btn theme-btn-dash pull-right">Order Now</button>-->
-<!--                                                  </form>-->
-<!--                                                --><?php //}?>
-             </div>
-                                        </div>
-                                  
-                                    </div>
-                                </div>
                                     <?php $cnt=$cnt+1; } ?>
                               
                                 <!-- Each popular food item starts -->

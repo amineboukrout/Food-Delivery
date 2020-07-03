@@ -29,13 +29,13 @@ $name=$row['AdminName'];
                 <li>
                     <a href="dashboard.php"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                                     </li>
-                                    <li>
-                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Food Category</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="add-foodcategory.php">Food Category</a></li>
-                        <li><a href="manage-foodcategory.php">Manage Food Category</a></li>
-                    </ul>
-                </li>
+<!--                                    <li>-->
+<!--                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Food Category</span><span class="fa arrow"></span></a>-->
+<!--                    <ul class="nav nav-second-level collapse">-->
+<!--                        <li><a href="add-foodcategory.php">Food Category</a></li>-->
+<!--                        <li><a href="manage-foodcategory.php">Manage Food Category</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
                  <li>
                     <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Food Menu</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">

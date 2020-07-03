@@ -74,7 +74,7 @@ $uid=$roww['UID'];
                 </tr>
               </thead>
               <?php
-$ret=mysqli_query($con,"select * from tblorderaddresses where OrderTime between '$fdate' and '$tdate' and RestaurantID = '$uid'") ;
+$ret=mysqli_query($con,"select * from tblorderaddresses where OrderTime between '$fdate' and '$tdate' and UID = '$uid'") ;
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

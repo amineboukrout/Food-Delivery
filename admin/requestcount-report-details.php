@@ -77,7 +77,7 @@ $tdate=$_POST['todate'];
 </tr>
 </thead>
 <?php
-$ret=mysqli_query($con,"select month(OrderTime) as lmonth,year(OrderTime) as lyear,count(ID) as totalcount,count(if(OrderFinalStatus='',0,null)) as uncofirmedorder,count(if(OrderFinalStatus='Order Confirmed',0,null)) as confirmedorder,count(if(OrderFinalStatus='Food being Prepared',0,null)) as fdbgpr,count(if(OrderFinalStatus='Food Pickup',0,null)) as foodpickup,count(if(OrderFinalStatus='Food Delivered',0,null)) as fooddel,count(if(OrderFinalStatus='Order Cancelled',0,null)) as foodcancel from tblorderaddresses where RestaurantID = '$uid' and OrderTime between '$fdate' and '$tdate' group by lmonth,lyear");
+$ret=mysqli_query($con,"select month(OrderTime) as lmonth,year(OrderTime) as lyear,count(ID) as totalcount,count(if(OrderFinalStatus='',0,null)) as uncofirmedorder,count(if(OrderFinalStatus='Order Confirmed',0,null)) as confirmedorder,count(if(OrderFinalStatus='Food being Prepared',0,null)) as fdbgpr,count(if(OrderFinalStatus='Food Pickup',0,null)) as foodpickup,count(if(OrderFinalStatus='Food Delivered',0,null)) as fooddel,count(if(OrderFinalStatus='Order Cancelled',0,null)) as foodcancel from tblorderaddresses where UID = '$uid' and OrderTime between '$fdate' and '$tdate' group by lmonth,lyear");
 while ($row=mysqli_fetch_array($ret)) {
 
 ?>

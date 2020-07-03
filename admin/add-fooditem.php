@@ -32,7 +32,7 @@ else{
     $itempic=md5($itempic).$extension;
     move_uploaded_file($_FILES["itemimages"]["tmp_name"],"itemimages/".$itempic);
 
-    $query=mysqli_query($con, "insert into tblfood(CategoryName,ItemName,ItemPrice,ItemDes, Image,ItemQty, RestaurantID) value('$fcat','$itemname','$price','$description','$itempic','$quantity','$uid')");
+    $query=mysqli_query($con, "insert into tblfood(CategoryName,ItemName,ItemPrice,ItemDes, Image,ItemQty, UID) value('$fcat','$itemname','$price','$description','$itempic','$quantity','$uid')");
     if ($query) {
     $msg="Food Item has been added.";
   }

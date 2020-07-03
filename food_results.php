@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
 $foodid=$_POST['foodid'];
 $userid= $_SESSION['fosuid'];
 $theUIDD=$_POST['UID'];
-$query=mysqli_query($con,"insert into tblorders(UserId,FoodId, RestaurantID) values('$userid','$foodid','$theUIDD') ");
+$query=mysqli_query($con,"insert into tblorders(UserId,FoodId, UID) values('$userid','$foodid','$theUIDD') ");
 if($query) {
  echo "<script>alert('Food has been added in to the cart');</script>";   
 } else {
@@ -37,6 +37,7 @@ if($query) {
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 
     <style>
     .center{
@@ -58,17 +59,28 @@ if($query) {
             <!-- .navbar -->
             <?php include_once('includes/header.php');?>
             <!-- /.navbar -->
+
         </header>
+
         <div class="page-wrapper">
             <!-- top Links -->
-            <div class="top-links">
-             
-            </div>
+            <div class="top-links"></div>
             <!-- end:Top links -->
             <!-- start: Inner page hero -->
-            <div class="inner-page-hero bg-image" data-image-src="images/decouvrez-l-experience-food-d-airbnb.jpg">
-                <div class="container"> </div>
+<!--            <div class="inner-page-hero bg-image" data-image-src="images/decouvrez-l-experience-food-d-airbnb.jpg">-->
+<!--                <div class="container"> </div>-->
                 <!-- end:Container -->
+<!--            </div>-->
+            <div class="restaurant-card__background">
+                <div class="restaurant-card__wrapper">
+                    <div class="restaurant-card">
+                        <span class="restaurant-card__title">Трактир «Пушкин»</span>
+                        <div class="restaurant-card__footer">
+                            <span class="restaurant-card__price">₴₴₴ • Европейская</span>
+                            <span class="restaurant-card__time">40 - 50 Min</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="result-show">
     <div class="container">
@@ -142,7 +154,7 @@ $offset = ($pageno-1) * $no_of_records_per_page;
         $result = mysqli_query($con,$total_pages_sql);
         $total_rows = mysqli_fetch_array($result)[0];
         $total_pages = ceil($total_rows / $no_of_records_per_page);
-        $sql = "SELECT * FROM tblfood WHERE tblfood.RestaurantID='$theUID' LIMIT $offset, $no_of_records_per_page";
+        $sql = "SELECT * FROM tblfood WHERE tblfood.UID='$theUID' LIMIT $offset, $no_of_records_per_page";
         $res_data = mysqli_query($con,$sql);
         $cnt=1;
         while($row = mysqli_fetch_array($res_data)){?>

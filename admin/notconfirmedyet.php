@@ -9,6 +9,8 @@ if (strlen($_SESSION['fosaid']==0)) {
 
 
   ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -34,7 +36,7 @@ $id = $_SESSION['fosaid'];
 $squerry = mysqli_query($con,"select * from tbladmin where ID = $id");
 $roww = mysqli_fetch_array($squerry);
 $uid=$roww['UID'];
-//echo '<script type="text/javascript">alert("'.$uid.'");</script>';
+echo '<script type="text/javascript">alert("'.$uid.'");</script>';
 ?>
 
     <div id="wrapper">
@@ -66,11 +68,9 @@ $uid=$roww['UID'];
                 </tr>
               </thead>
               <?php
-$ret=mysqli_query($con,"select * from tblorderaddresses where OrderFinalStatus is null and RestaurantID = '$uid'");
-$cnt=1;
-while ($row=mysqli_fetch_array($ret)) {
-
-?>
+                        $ret=mysqli_query($con,"select * from tblorderaddresses where OrderFinalStatus is null and UID = '$uid'");
+                        $cnt=1;
+                        while ($row=mysqli_fetch_array($ret)) {?>
               <tbody>
                 <tr>
                   <td><?php echo $cnt;?></td>

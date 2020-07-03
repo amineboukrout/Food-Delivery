@@ -33,6 +33,7 @@ if (strlen($_SESSION['fosaid']==0)) {
 <?php
 $id = $_SESSION['fosaid'];
 $squerry = mysqli_query($con,"select * from tbladmin where ID = $id");
+//echo '<script type="text/javascript">alert("'.$id.'");</script>';
 $roww = mysqli_fetch_array($squerry);
 $uid=$roww['UID'];
 //echo '<script type="text/javascript">alert("'.$uid.'");</script>';
@@ -48,8 +49,9 @@ $uid=$roww['UID'];
                         <div class="ibox">
                             <div class="ibox-title">
                                 <?php
-                                    $query=mysqli_query($con,"Select * from tblorderaddresses where RestaurantID = '$uid'");
+                                    $query=mysqli_query($con,"Select * from tblorderaddresses where UID = '$uid'");
                                     $totalorder=mysqli_num_rows($query);
+//                                echo '<script type="text/javascript">alert("'.$totalorder.'");</script>';
                                     ?>
                                 <a class="text-muted text-uppercase m-b-20" href="all-order.php" style="font-size: 20px"><strong>Total Order</strong></a>
 <!--                                <h5></h5>-->
@@ -64,7 +66,7 @@ $uid=$roww['UID'];
                         <div class="ibox ">
                             <div class="ibox-title">
                                 <?php
-                                    $query1=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus is null and RestaurantID = '$uid'");
+                                    $query1=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus is null and UID = '$uid'");
                                     $notconfirmedorder=mysqli_num_rows($query1);
                                     ?>
                                     <a class="text-muted text-uppercase m-b-20" href="notconfirmedyet.php" style="font-size: 20px"><strong>New Order</strong></a>
@@ -79,7 +81,7 @@ $uid=$roww['UID'];
                         <div class="ibox ">
                             <div class="ibox-title">
                                 <?php
-                                    $query2=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Order Confirmed' and RestaurantID = '$uid'");
+                                    $query2=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Order Confirmed' and UID = '$uid'");
                                     $conforder=mysqli_num_rows($query2);
                                     ?>
                                     <a class="text-muted text-uppercase m-b-20" href="confirmed-order.php" style="font-size: 20px"><strong>Confirmed Order</strong></a>
@@ -96,7 +98,7 @@ $uid=$roww['UID'];
                 <div class="ibox ">
                     <div class="ibox-title">
                         <?php
-                            $query3=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Food being Prepared' and RestaurantID = '$uid'");
+                            $query3=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Food being Prepared' and UID = '$uid'");
                             $beigpre=mysqli_num_rows($query3);
                             ?>
                         <a class="text-muted text-uppercase m-b-20" href="foodbeingprepared.php" style="font-size: 20px"><strong>Food being Prepared</strong></a>
@@ -112,7 +114,7 @@ $uid=$roww['UID'];
                 <div class="ibox ">
                     <div class="ibox-title">
                         <?php
-                            $query4=mysqli_query($con,"Select * from tblorderaddresses where OrderFinalStatus ='Food Pickup' AND RestaurantID = '$uid'");
+                            $query4=mysqli_query($con,"Select * from tblorderaddresses where OrderFinalStatus ='Food Pickup' AND UID = '$uid'");
                             $foodpickup=mysqli_num_rows($query4);
                             ?>
                             <a class="text-muted text-uppercase m-b-20" href="food-pickup.php" style="font-size: 20px"><strong> Food Pickup</strong></a>
@@ -128,7 +130,7 @@ $uid=$roww['UID'];
                 <div class="ibox ">
                     <div class="ibox-title">
                         <?php
-                            $query5=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Food Delivered' AND RestaurantID = '$uid'");
+                            $query5=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus ='Food Delivered' AND UID = '$uid'");
                             $fooddel=mysqli_num_rows($query5);
                             ?>
                             <a class="text-muted text-uppercase m-b-20" href="food-delivered.php" style="font-size: 20px"><strong>Total Food Deliver</strong></a>
@@ -144,7 +146,7 @@ $uid=$roww['UID'];
                <div class="ibox ">
                    <div class="ibox-title">
                     <?php
-                        $query1=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus='Order Cancelled' AND RestaurantID = '$uid'");
+                        $query1=mysqli_query($con,"Select * from  tblorderaddresses where OrderFinalStatus='Order Cancelled' AND UID = '$uid'");
                         $notconfirmedorder=mysqli_num_rows($query1);
                         ?>
                      <a class="text-muted text-uppercase m-b-20" href="canclled-order.php" style="font-size: 20px"><strong>Cancelled Order</strong></a>

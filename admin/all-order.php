@@ -65,7 +65,7 @@ $uid=$roww['UID'];
                 </tr>
               </thead>
               <?php
-$ret=mysqli_query($con,"select * from tblorderaddresses where RestaurantID = '$uid'");
+$ret=mysqli_query($con,"select * from tblorderaddresses where UID = '$uid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

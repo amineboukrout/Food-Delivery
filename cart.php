@@ -7,8 +7,8 @@ if (strlen($_SESSION['fosuid']==0)) {
   } else{ 
 //placing order
 
-    $uidquery = mysqli_query($con, "select tblorders.RestaurantID from tblorders where tblorders.IsOrderPlaced is null");
-    $theUID = mysqli_fetch_array($uidquery)['RestaurantID'];
+    $uidquery = mysqli_query($con, "select tblorders.UID from tblorders where tblorders.IsOrderPlaced is null");
+    $theUID = mysqli_fetch_array($uidquery)['UID'];
 
 if(isset($_POST['placeorder'])){
     //getting address
@@ -21,7 +21,7 @@ if(isset($_POST['placeorder'])){
     //genrating order number
     $orderno= mt_rand(100000000, 999999999);
     $query="update tblorders set OrderNumber='$orderno',IsOrderPlaced='1' where UserId='$userid' and IsOrderPlaced is null;";
-    $query.="insert into tblorderaddresses(UserId,Ordernumber,Flatnobuldngno,StreetName,Area,Landmark,City,RestaurantID) values('$userid','$orderno','$fnaobno','$street','$area','$lndmark','$city','$theUID');";
+    $query.="insert into tblorderaddresses(UserId,Ordernumber,Flatnobuldngno,StreetName,Area,Landmark,City,UID) values('$userid','$orderno','$fnaobno','$street','$area','$lndmark','$city','$theUID');";
 
     $result = mysqli_multi_query($con, $query);
     if ($result) {

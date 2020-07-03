@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="908a55e6-fd0b-4c40-9c85-d03ba0eb34dd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/fos" />
+  </component>
+  <component name="ProjectId" id="1drOfuV5a81EuoNrtUn2Oc6kXp3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="tblcate&#9;ACTION&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1592595022788" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/drivers" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\fos\drivers" />
+      <recent name="C:\xampp\htdocs\fos" />
+      <recent name="C:\xampp\htdocs\fos\fos\css\components" />
+      <recent name="C:\xampp\htdocs\fos\fos" />
+      <recent name="C:\xampp\htdocs\fos\fos\temp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\fos" />
+      <recent name="C:\xampp\htdocs\fos\fos\css" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.foodmenu.php">
+    <configuration name="food_results.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/fos/Food Ordering System Project/fos/food_results.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="foodmenu.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/fos/Food Ordering System Project/fos/foodmenu.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/fos/Food Ordering System Project/fos/index.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="restaurant_card.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/fos/Food Ordering System Project/fos/temp/restaurant_card.html">
+      <method v="2" />
+    </configuration>
+    <configuration name="search-area.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/fos/Food Ordering System Project/fos/search-area.php">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.index.php" />
+      <item itemvalue="JavaScript Debug.search-area.php" />
+      <item itemvalue="JavaScript Debug.restaurant_card.html" />
+      <item itemvalue="JavaScript Debug.food_results.php" />
+      <item itemvalue="JavaScript Debug.foodmenu.php" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.foodmenu.php" />
+        <item itemvalue="JavaScript Debug.food_results.php" />
+        <item itemvalue="JavaScript Debug.restaurant_card.html" />
+        <item itemvalue="JavaScript Debug.search-area.php" />
+        <item itemvalue="JavaScript Debug.index.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="908a55e6-fd0b-4c40-9c85-d03ba0eb34dd" name="Default Changelist" comment="" />
+      <created>1591126331754</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591126331754</updated>
+      <workItem from="1591126334477" duration="252000" />
+      <workItem from="1591126683984" duration="52000" />
+      <workItem from="1591126763642" duration="687000" />
+      <workItem from="1591187981413" duration="49000" />
+      <workItem from="1591195544378" duration="3986000" />
+      <workItem from="1591357122349" duration="16855000" />
+      <workItem from="1591453703927" duration="20000" />
+      <workItem from="1591453756838" duration="4812000" />
+      <workItem from="1591541433074" duration="8500000" />
+      <workItem from="1591707278254" duration="20000" />
+      <workItem from="1591707338863" duration="21643000" />
+      <workItem from="1591870160434" duration="22982000" />
+      <workItem from="1592048939130" duration="73000" />
+      <workItem from="1592049043371" duration="15290000" />
+      <workItem from="1592135132952" duration="1863000" />
+      <workItem from="1592244758242" duration="9104000" />
+      <workItem from="1592317530810" duration="19042000" />
+      <workItem from="1592486578927" duration="4000" />
+      <workItem from="1592487173904" duration="12922000" />
+      <workItem from="1592579378933" duration="6311000" />
+      <workItem from="1592819457513" duration="37000" />
+      <workItem from="1593179858731" duration="85000" />
+      <workItem from="1593179960807" duration="13342000" />
+      <workItem from="1593348850233" duration="902000" />
+      <workItem from="1593350004373" duration="175000" />
+      <workItem from="1593352514543" duration="4669000" />
+      <workItem from="1593448200736" duration="14512000" />
+      <workItem from="1593509507130" duration="5986000" />
+      <workItem from="1593519764075" duration="969000" />
+      <workItem from="1593787627741" duration="11503000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="500" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593369967252">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="500" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593369967252" />
+    <state x="550" y="172" key="FileChooserDialogImpl" timestamp="1593350026300">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="550" y="172" key="FileChooserDialogImpl/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593350026300" />
+    <state x="601" y="140" key="NewPhpClassDialog" timestamp="1593788355604">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="601" y="140" key="NewPhpClassDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593788355604" />
+    <state x="605" y="341" key="NewPhpFileDialog" timestamp="1593793835751">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="605" y="341" key="NewPhpFileDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593793835751" />
+    <state x="279" y="62" key="SettingsEditor" timestamp="1593180010424">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="279" y="62" key="SettingsEditor/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593180010424" />
+    <state x="94" y="94" width="1349" height="646" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1593508160073">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="94" y="94" width="1349" height="646" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593508160073" />
+    <state x="306" y="42" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1593796854132">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="306" y="42" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593796854132" />
+    <state x="-1760" y="605" width="1257" height="820" key="dock-window-1" timestamp="1593350181471">
+      <screen x="-1366" y="657" width="1366" height="738" />
+    </state>
+    <state x="-1760" y="605" width="1257" height="820" key="dock-window-1/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593350181471" />
+    <state x="477" y="16" width="582" height="801" key="find.popup" timestamp="1593361554789">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="477" y="16" width="582" height="801" key="find.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593361554789" />
+    <state x="203" y="38" key="new project wizard" timestamp="1593350178927">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="203" y="38" key="new project wizard/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593350178927" />
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1593789097470">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593789097470" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1593513562592">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593513562592" />
+  </component>
+</project>

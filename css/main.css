@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
-@import "components/header.css";
 @import "components/main-section.css";
 @import "components/card.css";
-@import "components/footer.css";
 @import "components/restaurant.css";
 @import "components/restaurant-menu.css";
 @import "components/appetizers.css";
