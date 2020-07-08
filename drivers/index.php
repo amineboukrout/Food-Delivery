@@ -42,9 +42,7 @@ if(isset($_POST['login']))
         <div class="row">
 
             <div class="col-md-6">
-                <h2 class="font-bold">Food Ordering System | Admin Login</h2>
-
-              
+                <h2 class="font-bold">Food Ordering System | Driver's Login</h2>
             </div>
             <div class="col-md-6">
                 <div class="ibox-content">

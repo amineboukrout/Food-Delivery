@@ -25,10 +25,17 @@ if (strlen($_SESSION['fosaid']==0)) {
     <link href="css/style.css" rel="stylesheet">
 
     <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
         #map {
-            width: 100%;
             height: 400px;
-            /*background-color: grey;*/
+            width: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
     </style>
 
@@ -44,7 +51,10 @@ $squerry = mysqli_query($con,"select * from tbladmin where ID = $id");
 //echo '<script type="text/javascript">alert("'.$id.'");</script>';
 $roww = mysqli_fetch_array($squerry);
 $uid=$roww['UID'];
-//echo '<script type="text/javascript">alert("'.$uid.'");</script>';
+$address = $_SESSION['address'];
+$address_alt = str_replace(" ","+",$address);
+echo '<script type="text/javascript">alert("'.$address_alt.'")</script>';
+
 ?>
 <div id="wrapper">
     <?php include_once('includes/leftbar.php');?>
@@ -53,62 +63,101 @@ $uid=$roww['UID'];
         <?php include_once('includes/header.php');?>
         <div class="wrapper wrapper-content">
             <div class="row">
-                <div id="map">
-
-                </div>
+                <div id="map"></div>
+                <input type="hidden" value="<?php echo $_SESSION['address']; ?>" id="end"/>
                 <script>
-                    // There are 2 possibilities for this problem:
-                    //     you didn't enter the API KEY for map browser
-                    //     you didn't enabling the API Library especially for this Google Maps JavaScript API
 
-                    var geocoder;
-                    var map;
-                    // Initialize and add the map
                     function initMap() {
-                        // The location of Uluru
-                        var uluru = {lat: 51.508742, lng: -0.120850};
-                        // The map, centered at Uluru
-                        map = new google.maps.Map(
-                            document.getElementById('map'), {zoom: 9, center: uluru});
-                        // The marker, positioned at Uluru
-                        var marker = new google.maps.Marker({position: uluru, map: map});
+
+                        // Try HTML5 geolocation.
+                        if (navigator.geolocation) {
+
+                            navigator.geolocation.getCurrentPosition(function(position) {
+                                var pos = {
+                                    lat: position.coords.latitude,
+                                    lng: position.coords.longitude
+                                };
+
+                                window.pos = pos;
+                                // alert(pos.lat);
+                                // alert(pos.lng);
+
+                                var directionsService = new google.maps.DirectionsService;
+                                var directionsDisplay = new google.maps.DirectionsRenderer;
+                                //  ourOrigin = new google.maps.LatLng(pos.lat, pos.lng);
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 7,
+                                    center: {lat: pos.lat, lng: pos.lng}
+                                });
+                                directionsDisplay.setMap(map);
+
+                                calculateAndDisplayRoute(directionsService, directionsDisplay);
+
+
+                            });
+                        } else {
+                            // Browser doesn't support Geolocation
+                            handleLocationError(false, infoWindow, map.getCenter());
+                        }
+                        autoUpdate()
                     }
 
-                    var lat, lng;
-                    function geocodeAddress(geocoder, resultsMap) {
-                        var address = document.getElementById("address").value;
-                        geocoder.geocode(
-                            {
-                                address: address
-                            },
-                            function(results, status) {
 
-                                if (status === "OK") {
-                                    resultsMap.setCenter(results[0].geometry.location);
-                                    var marker = new google.maps.Marker({
-                                        map: resultsMap,
-                                        position: results[0].geometry.location
-                                    });
-                                    alert('hjhgjm')
-                                } else {
-                                    alert(
-                                        "Geocode was not successful for the following reason: " + status
-                                    );
-                                }
+                    function autoUpdate() {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            var newPoint = new google.maps.LatLng(position.coords.latitude,
+                                position.coords.longitude);
+
+                            // if (marker) {
+                            //     // Marker already created - Move it
+                            //     marker.setPosition(newPoint);
+                            // }
+                            // else {
+                                // Marker does not exist - Create it
+                            marker = new google.maps.Marker({
+                                position: newPoint,
+                                map: map
+                            });
+                            // }
+
+                            // Center the map on the new position
+                            map.setCenter(newPoint);
+                        });
+                        // alert('hhhhhh')
+                        // Call the autoUpdate() function every 5 seconds
+                        setTimeout(autoUpdate, 5000);
+                    }
+
+                    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+                        console.log("Testing : "+pos);
+                        directionsService.route({
+                            origin:  new google.maps.LatLng(pos.lat, pos.lng),
+                            destination: document.getElementById('end').value,
+                            travelMode: 'DRIVING'
+                        }, function(response, status) {
+                            if (status === 'OK') {
+                                directionsDisplay.setDirections(response);
+                            } else {
+                                window.alert('Directions request failed due to ' + status);
                             }
-                        );
+                        });
                     }
-
                 </script>
+
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVjLkZQ2CVtED6U8SsbaVXenBX9yWv2z0&callback=initMap">
+
+                    //you need to enable google map, and google direction javascript APIs from inside your http://console.developers.google.com account
+                    //STEPS
+                    //1. Login, create a project, then click on "ENABLE APIs and SERVICES" at the top of the page
+                    //2. Enable 3 APIs - Geolocation API, Directions API, Maps Javascript API
+                    //3. If you are using this code outside of the web, eg. android, you have to enable the 'maps sdk for android' or ios as the case may be
+                    //You then have to insert the key in place of the GOOGLE-MAP-DIRECTION-API-KEY above.
                 </script>
-                <div>
-                    <input id="address" type="textbox" value="Sydney, NSW">
-                    <input type="button" value="Encode" onclick="geocodeAddress()">
-                </div>
 
             </div>
+            <br><br>
+            <button><a href="https://www.google.com/maps?saddr=My+Location&daddr=<?php echo $address_alt; ?>">Get Directions</a></button>
         </div>
 
         <?php include_once('includes/footer.php');?>

@@ -55,6 +55,7 @@ echo '\\'.$_SESSION['Driver_UID'].'\\';
 echo '\\'.$_SESSION['rUID'].'\\';
 echo '\\'.$_SESSION['address'].'\\';
 echo '\\'.$_SESSION['Ordernumber'].'\\';
+
 ?>
     <div id="wrapper">
 
@@ -194,7 +195,9 @@ while ($row1=mysqli_fetch_array($query)) {
 </tr>
 <?php 
 $grandtotal+=$total;
-$cnt=$cnt+1;} ?>
+$cnt=$cnt+1;}
+// echo '<script type="text/javascript">alert("'.$_SESSION['address'].'");</script>';
+?>
 <tr>
   <th colspan="3" style="text-align:center">Grand Total </th>
 <td><?php  echo $grandtotal;?></td>
@@ -207,7 +210,8 @@ $cnt=$cnt+1;} ?>
     <tr><td></td><td></td></tr>
     <tr>
         <td>Delivery Address:</td>
-        <th colspan="3" style="text-align:center"> <a href="http://maps.google.com/maps?q=<?php echo $_SESSION['address']; ?>" target="_blank"><?php echo $_SESSION['address']; ?></a> </th>
+        <th colspan="3" style="text-align:center"> <a href="viewmap.php"><?php echo $_SESSION['address']; ?></a> </th>
+<!--        <th colspan="3" style="text-align:center"> <a href="http://maps.google.com/maps?q=--><?php //echo $_SESSION['address']; ?><!--" target="_blank">--><?php //echo $_SESSION['address']; ?><!--</a> </th>-->
     </tr>
 
 </table>  
