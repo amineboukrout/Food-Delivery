@@ -51,7 +51,10 @@ if($query) {
 <body>
 <?php
     $theUID = $_POST['UID'];
-    echo '<script type="text/javascript">alert("'.$theUID.'");</script>';
+//    echo '<script type="text/javascript">alert("'.$theUID.'");</script>';
+    $query = mysqli_query($con,"select * from tbladmin where UID = '$theUID'");
+    $rowres = mysqli_fetch_array($query);
+//    echo '<script type="text/javascript">alert("'.$rows['RestaurantName'].'");</script>';
 ?>
     <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
         <!--header starts-->
@@ -74,9 +77,9 @@ if($query) {
             <div class="restaurant-card__background">
                 <div class="restaurant-card__wrapper">
                     <div class="restaurant-card">
-                        <span class="restaurant-card__title">Трактир «Пушкин»</span>
+                        <span class="restaurant-card__title"><?php echo $rowres['RestaurantName'];?></span>
                         <div class="restaurant-card__footer">
-                            <span class="restaurant-card__price">₴₴₴ • Европейская</span>
+                            <span class="restaurant-card__price"><?php echo $rowres['Category']?> • <?php echo $rowres['Area']; ?></span>
                             <span class="restaurant-card__time">40 - 50 Min</span>
                         </div>
                     </div>
@@ -174,8 +177,8 @@ $offset = ($pageno-1) * $no_of_records_per_page;
     <form method="post" action="food_results.php">
     <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>">
     <input type="hidden" name="UID" value="<?php echo $theUID;?>">
-<button type="submit" name="submit" class="btn theme-btn-dash pull-right">Order Now</button>
-  </form>
+    <button type="submit" name="submit" class="btn theme-btn-dash pull-right">Order Now</button>
+    </form>
 <?php }?>
                                               </div>
                                         </div>

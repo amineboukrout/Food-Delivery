@@ -95,7 +95,7 @@ if($query)
                                     <div class="sidebar-title white-txt">
                                         <h6>All Restaurants</h6> <i class="fa fa-cutlery pull-right"></i> </div>
                                         <?php
-                                            $query=mysqli_query($con,"select * from  tblrestaurants");
+                                            $query=mysqli_query($con,"select * from  tbladmin WHERE RestaurantName != ''");
                                             while($row=mysqli_fetch_array($query)){?>
                                                 <ul>
                                                     <li>
@@ -133,11 +133,11 @@ if($query)
                                 $offset = ($pageno-1) * $no_of_records_per_page;
 
                                 // Getting total number of pages
-                                        $total_pages_sql ="SELECT COUNT(*) FROM tblrestaurants";
+                                        $total_pages_sql ="SELECT COUNT(*) FROM tbladmin WHERE RestaurantName != ''";
                                         $result = mysqli_query($con,$total_pages_sql);
                                         $total_rows = mysqli_fetch_array($result)[0];
                                         $total_pages = ceil($total_rows / $no_of_records_per_page);
-                                        $sql = "SELECT * FROM tblrestaurants LIMIT $offset, $no_of_records_per_page";
+                                        $sql = "SELECT * FROM tbladmin WHERE RestaurantName != '' LIMIT $offset, $no_of_records_per_page";
                                         $res_data = mysqli_query($con,$sql);
                                         $cnt=1;
                                         while($row = mysqli_fetch_array($res_data)){?>

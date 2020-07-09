@@ -99,7 +99,7 @@ if($query) {
                                     </div>
 
                                <?php
-                               $query=mysqli_query($con,"select * from tblrestaurants where LENGTH(tblrestaurants.Area) > 0");
+                               $query=mysqli_query($con,"select * from tbladmin where LENGTH(tbladmin.Area) > 0");
                                while($row=mysqli_fetch_array($query)) {?>
                                         <ul>
                                             <li>
@@ -125,7 +125,7 @@ if($query) {
                                 <!-- Each popular food item starts -->
                                 <?php
                                     $searchdata=$_POST['searchdata'];
-                                    $sql = "SELECT * FROM tblrestaurants where Area like '%$searchdata%' ";
+                                    $sql = "SELECT * FROM tbladmin where Area like '%$searchdata%' ";
                                     $res_data = mysqli_query($con,$sql);
                                     $cnt=1;
                                     while($row = mysqli_fetch_array($res_data)){?>

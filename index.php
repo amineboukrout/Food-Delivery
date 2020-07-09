@@ -145,7 +145,7 @@ if($query)
                 <div class="row">
                     <!-- Each popular food item starts -->
                     <?php
-                     $ret=mysqli_query($con,"select * from tblrestaurants order by rand() limit 9");
+                     $ret=mysqli_query($con,"select * from tbladmin order by rand() limit 9");
                         $cnt=1;
                         while ($row=mysqli_fetch_array($ret)) {
 //                            echo '<script type="text/javascript">alert("'.$row['UID'].'");</script>';?>

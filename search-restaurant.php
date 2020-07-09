@@ -116,7 +116,7 @@ function printArray($array){
                                     <div class="sidebar-title white-txt">
                                         <h6>Restaurants</h6> <i class="fa fa-cutlery pull-right"></i> </div>
                                <?php
-                               $query=mysqli_query($con,"select * from  tblrestaurants");
+                               $query=mysqli_query($con,"select * from  tbladmin WHERE RestaurantName != ''");
                                while($row=mysqli_fetch_array($query)) {?>
                                    <ul>
                                        <li>
@@ -142,7 +142,7 @@ function printArray($array){
                                 <!-- Each popular food item starts -->
                                 <?php
                                     $searchdata=$_POST['searchdata'];
-                                    $sql = "SELECT * FROM tblrestaurants where RestaurantName like '%$searchdata%'";
+                                    $sql = "SELECT * FROM tbladmin where RestaurantName like '%$searchdata%'";
                                     $res_data = mysqli_query($con, $sql);
 
 //                                    $sql = "SELECT * FROM tblfood where ItemName like '%$searchdata%' ";
