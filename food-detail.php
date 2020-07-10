@@ -5,16 +5,15 @@ include('includes/dbconnection.php');
 if(isset($_POST['submit'])) {
     $foodid=$_POST['foodid'];
     $userid= $_SESSION['fosuid'];
-    $query=mysqli_query($con,"insert into tblorders(UserId,FoodId) values('$userid','$foodid') ");
+    $query=mysqli_query($con,"insert into tblorders(UserId,FoodId, rUID) values('$userid','$foodid','$theUID') ");
     if($query) {
         echo "<script>alert('Food has been added in to the cart');</script>";
     }else {
      echo "<script>alert('Something went wrong.');</script>";
     }
 }
+?>
 
-
-  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +35,8 @@ if(isset($_POST['submit'])) {
     <link href="css/style.css" rel="stylesheet"> </head>
 
 <body>
+<?php
+//echo '<script type="text/javascript">alert("'.$_POST['UID'].'");</script>';?>
     <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
         <!--header starts-->
         <header id="header" class="header-scroll top-header headrom">
@@ -56,7 +57,12 @@ if(isset($_POST['submit'])) {
  $cid=$_GET['fid'];
 $ret=mysqli_query($con,"select * from tblfood where ID='$cid'");
 $cnt=1;
-while ($row=mysqli_fetch_array($ret)) {?>
+
+
+
+while ($row=mysqli_fetch_array($ret)) {
+    $theUID = $row['UID'];
+                                     ?>
             <section class="inner-page-hero bg-image" data-image-src="images/decouvrez-l-experience-food-d-airbnb.jpg">
                 <div class="profile">
                     <div class="container">

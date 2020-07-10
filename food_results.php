@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
 $foodid=$_POST['foodid'];
 $userid= $_SESSION['fosuid'];
 $theUIDD=$_POST['UID'];
-$query=mysqli_query($con,"insert into tblorders(UserId,FoodId, UID) values('$userid','$foodid','$theUIDD') ");
+$query=mysqli_query($con,"insert into tblorders(UserId,FoodId, rUID) values('$userid','$foodid','$theUIDD') ");
 if($query) {
  echo "<script>alert('Food has been added in to the cart');</script>";   
 } else {
@@ -167,9 +167,12 @@ $offset = ($pageno-1) * $no_of_records_per_page;
                                             <img src="admin/itemimages/<?php echo $row['Image'];?>" width="300" height="180">
                                         </div>
                                         <div class="content">
+                                            <form method="post" action="food-detail.php">
                                             <h5><a href="food-detail.php?fid=<?php echo $row['ID'];?>"><?php echo $row['ItemName'];?></a></h5>
                                             <div class="product-name"><?php echo substr($row['ItemDes'],0,50);?></div>
                                             <div class="price-btn-block"> <span class="price">Rs. <?php echo $row['ItemPrice'];?></span>
+                                                <input type="hidden" name="UID" value="<?php echo $theUID;?>">
+                                            </form>
 
 <?php if($_SESSION['fosuid']==""){?>
 <a href="login.php" class="btn theme-btn-dash pull-right">Order Now</a>
@@ -181,6 +184,7 @@ $offset = ($pageno-1) * $no_of_records_per_page;
     </form>
 <?php }?>
                                               </div>
+
                                         </div>
 
                                     </div>

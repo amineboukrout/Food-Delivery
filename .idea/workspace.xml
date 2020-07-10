@@ -21,13 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="908a55e6-fd0b-4c40-9c85-d03ba0eb34dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/viewmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/viewmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/food-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/food-detail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/food_results.php" beforeDir="false" afterPath="$PROJECT_DIR$/food_results.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_results.php" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_results.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search-area.php" beforeDir="false" afterPath="$PROJECT_DIR$/search-area.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search-restaurant.php" beforeDir="false" afterPath="$PROJECT_DIR$/search-restaurant.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +171,7 @@
       <workItem from="1593941973123" duration="1381000" />
       <workItem from="1594025398952" duration="39000" />
       <workItem from="1594032834670" duration="8659000" />
-      <workItem from="1594284594507" duration="1732000" />
+      <workItem from="1594284594507" duration="5143000" />
     </task>
     <servers />
   </component>
@@ -236,10 +231,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="203" y="38" key="new project wizard/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593350178927" />
-    <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1593942376015">
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1594288237711">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593942376015" />
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1594288237711" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1593939859148">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
