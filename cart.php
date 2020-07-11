@@ -63,16 +63,17 @@ echo "<script>window.location.href='cart.php'</script>";
     <link href="css/animsition.min.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet"> </head>
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
 <body>
 <?php
-$driver_available = mysqli_fetch_array(mysqli_query($con,"select tbldrivers.UID from tbldrivers where Available = 'Yes'"));
-$count_available = mysqli_fetch_array(mysqli_query($con, "select count(*) from tbldrivers where Available = 'Yes'"));
-echo '<script type="text/javascript">alert("'.$count_available['count(*)'].'");</script>';
-$count_available = $count_available['count(*)'];
-$driver_select = rand(1,$count_available);
-
+    $driver_available = mysqli_fetch_array(mysqli_query($con,"select UID from tbldrivers where Available = 'Yes'"));
+    $count_available = mysqli_fetch_array(mysqli_query($con, "select count(*) from tbldrivers where Available = 'Yes'"));
+    $count_available = $count_available['count(*)'];
+    $driver_select = rand(1,$count_available);
+    echo '<script type="text/javascript">alert("'.$driver_available[0].'");</script>';
+    print_r($driver_available);
 ?>
    <div class="site-wrapper animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
         <!--header starts-->

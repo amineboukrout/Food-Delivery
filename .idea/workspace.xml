@@ -81,16 +81,16 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\fos" />
+      <recent name="C:\xampp\htdocs\fos\fos\css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\fos\drivers" />
       <recent name="C:\xampp\htdocs\fos" />
       <recent name="C:\xampp\htdocs\fos\fos\css\components" />
       <recent name="C:\xampp\htdocs\fos\fos" />
       <recent name="C:\xampp\htdocs\fos\fos\temp" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\fos" />
-      <recent name="C:\xampp\htdocs\fos\fos\css" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.foodmenu.php">
@@ -170,7 +170,7 @@
       <workItem from="1593941973123" duration="1381000" />
       <workItem from="1594025398952" duration="39000" />
       <workItem from="1594032834670" duration="8659000" />
-      <workItem from="1594284594507" duration="9714000" />
+      <workItem from="1594284594507" duration="12540000" />
     </task>
     <servers />
   </component>
@@ -210,6 +210,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="279" y="62" key="SettingsEditor/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593180010424" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1594464071243">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1594464071243" />
     <state x="94" y="94" width="1349" height="646" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1593508160073">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -230,10 +234,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="203" y="38" key="new project wizard/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593350178927" />
-    <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1594288237711">
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1594463050440">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1594288237711" />
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1594463050440" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1594371283467">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
