@@ -22,6 +22,7 @@
     <list default="true" id="908a55e6-fd0b-4c40-9c85-d03ba0eb34dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/dbconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dbconnection.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +172,8 @@
       <workItem from="1594025398952" duration="39000" />
       <workItem from="1594032834670" duration="8659000" />
       <workItem from="1594284594507" duration="12540000" />
+      <workItem from="1594993404870" duration="13603000" />
+      <workItem from="1595344256227" duration="11645000" />
     </task>
     <servers />
   </component>
@@ -202,10 +205,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="601" y="140" key="NewPhpClassDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593788355604" />
-    <state x="605" y="341" key="NewPhpFileDialog" timestamp="1593853628200">
+    <state x="605" y="341" key="NewPhpFileDialog" timestamp="1595069870702">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="605" y="341" key="NewPhpFileDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593853628200" />
+    <state x="605" y="341" key="NewPhpFileDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595069870702" />
     <state x="279" y="62" key="SettingsEditor" timestamp="1593180010424">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -230,17 +233,17 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="477" y="16" width="582" height="801" key="find.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1594204146217" />
-    <state x="203" y="38" key="new project wizard" timestamp="1593350178927">
+    <state x="203" y="38" key="new project wizard" timestamp="1595254722341">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="203" y="38" key="new project wizard/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593350178927" />
+    <state x="203" y="38" key="new project wizard/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595254722341" />
     <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1594463050440">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1594463050440" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1594371283467">
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1595071566065">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1594371283467" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595071566065" />
   </component>
 </project>

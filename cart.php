@@ -64,9 +64,14 @@ echo "<script>window.location.href='cart.php'</script>";
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
 </head>
 
 <body>
+<script src="https://www.paypal.com/sdk/js?client-id=AZef0lFFrH6QJywlIqzn-L9KbX2rgNmRf1ZhLN-C__83boVJJLkX_U_O_fdAUkDOAAu4kueT2guGz0QP"></script>
 <?php
     $driver_available = mysqli_fetch_array(mysqli_query($con,"select UID from tbldrivers where Available = 'Yes'"));
     $count_available = mysqli_fetch_array(mysqli_query($con, "select count(*) from tbldrivers where Available = 'Yes'"));
@@ -223,13 +228,44 @@ echo "<script>window.location.href='cart.php'</script>";
                                     <div class="price-wrap text-xs-center">
                                         <p>TOTAL</p>
                                         <h3 class="value"><strong><?php echo $grandtotal;?></strong></h3>
-                                        <p>Free Shipping</p>
-                                        <button  type="submit" name="placeorder" class="btn theme-btn btn-lg">Place order</button>
+<!--                                        <p>Free Shipping</p>-->
+<!--                                        <button  type="submit" name="placeorder" class="btn theme-btn btn-lg">Place order</button>-->
+                                        <div id="paypal-button-container" style="width: 120px; margin:0 auto;">
+
+                                            <!-- Add the checkout buttons, set up the order and approve the order -->
+                                            <script>
+                                                paypal.Buttons({
+                                                    style: {
+                                                        color: 'blue',
+                                                        shape: 'pill',
+                                                        size: 'responsive',
+                                                        height: 30,
+                                                        label: 'pay'
+                                                    },
+
+                                                    createOrder: function(data, actions) {
+                                                        return actions.order.create({
+                                                            purchase_units: [{
+                                                                amount: {
+                                                                    value: '0.01'
+                                                                }
+                                                            }]
+                                                        });
+                                                    },
+                                                    onApprove: function(data, actions) {
+                                                        return actions.order.capture().then(function(details) {
+                                                            alert('Transaction completed by ' + details.payer.name.given_name);
+                                                        });
+                                                    }
+                                                }).render('#paypal-button-container'); // Display payment options on your web page
+                                            </script>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <!-- end:Right Sidebar -->
                 </div>
             </form>
@@ -240,6 +276,7 @@ echo "<script>window.location.href='cart.php'</script>";
           
 
         </div>
+
         <!-- end:page wrapper -->
             <!-- start: FOOTER -->
             <?php include('includes/footer.php');?>
