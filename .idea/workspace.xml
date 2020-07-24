@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="908a55e6-fd0b-4c40-9c85-d03ba0eb34dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homepage.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/dbconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dbconnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +177,7 @@
       <workItem from="1594284594507" duration="12540000" />
       <workItem from="1594993404870" duration="13603000" />
       <workItem from="1595344256227" duration="11645000" />
+      <workItem from="1595504445921" duration="3010000" />
     </task>
     <servers />
   </component>
@@ -237,10 +241,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="203" y="38" key="new project wizard/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595254722341" />
-    <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1594463050440">
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1595506687971">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1594463050440" />
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595506687971" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1595071566065">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

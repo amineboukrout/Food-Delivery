@@ -49,4 +49,20 @@ if(mysqli_connect_errno()) {
 else{
   echo "Connection Success";
 }
+
+//$sql = new mysqli('10.110.224.3',
+//    'amine', // username
+//    'amine',
+//    'deliveryjini',
+//    null,
+//    '/cloudsql/nth-passage-284011:us-east4:deliveryjinidb'
+//);
+//
+//if ($sql->connect_errno) {
+//    echo 'no';
+//    die('Connect Error (' . $sql->connect_errno . ') '. $sql->connect_error);
+//} else {
+//    echo 'yes\n';
+//}
+
   ?>

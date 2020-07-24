@@ -1,5 +1,4 @@
 runtime: php74
-api_version: 1
 
 handlers:
 - url: /css
@@ -12,10 +11,7 @@ handlers:
   static_dir: images
 
 - url: /.*
-  script: index.php
-
-- url: /.*
-  static_dir: .
+  script: auto
 
 # Serve images as static resources.
 - url: /(.+\.(gif|png|jpg))$
@@ -24,7 +20,7 @@ handlers:
 
 # Serve php scripts.
 - url: /(.+\.php)$
-  script: \1
+  script: auto
 
 runtime_config:
   document_root: . 
