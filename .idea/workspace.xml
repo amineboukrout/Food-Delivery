@@ -20,12 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="908a55e6-fd0b-4c40-9c85-d03ba0eb34dd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/checkout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/listener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/start.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homepage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/includes/dbconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/dbconnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drivers/includes/dbconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/includes/dbconnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drivers/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/dbconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dbconnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +77,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1592595022788" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/drivers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -85,26 +91,26 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\fos" />
+      <recent name="C:\xampp\htdocs\fos\.idea" />
+      <recent name="C:\xampp\htdocs\fos\drivers" />
+      <recent name="C:\xampp\htdocs\fos\fos\css\components" />
+      <recent name="C:\xampp\htdocs\fos\fos" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\fos" />
       <recent name="C:\xampp\htdocs\fos\fos\css" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\fos\drivers" />
-      <recent name="C:\xampp\htdocs\fos" />
-      <recent name="C:\xampp\htdocs\fos\fos\css\components" />
-      <recent name="C:\xampp\htdocs\fos\fos" />
-      <recent name="C:\xampp\htdocs\fos\fos\temp" />
-    </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.foodmenu.php">
+  <component name="RunManager" selected="JavaScript Debug.cart.php">
+    <configuration name="cart.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/fos/cart.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="food_results.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/fos/Food Ordering System Project/fos/food_results.php">
       <method v="2" />
     </configuration>
     <configuration name="foodmenu.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/fos/Food Ordering System Project/fos/foodmenu.php">
-      <method v="2" />
-    </configuration>
-    <configuration name="index.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/fos/Food Ordering System Project/fos/index.php">
       <method v="2" />
     </configuration>
     <configuration name="restaurant_card.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/fos/Food Ordering System Project/fos/temp/restaurant_card.html">
@@ -114,19 +120,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JavaScript Debug.index.php" />
       <item itemvalue="JavaScript Debug.search-area.php" />
       <item itemvalue="JavaScript Debug.restaurant_card.html" />
       <item itemvalue="JavaScript Debug.food_results.php" />
       <item itemvalue="JavaScript Debug.foodmenu.php" />
+      <item itemvalue="JavaScript Debug.cart.php" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.cart.php" />
         <item itemvalue="JavaScript Debug.foodmenu.php" />
         <item itemvalue="JavaScript Debug.food_results.php" />
         <item itemvalue="JavaScript Debug.restaurant_card.html" />
         <item itemvalue="JavaScript Debug.search-area.php" />
-        <item itemvalue="JavaScript Debug.index.php" />
       </list>
     </recent_temporary>
   </component>
@@ -178,6 +184,7 @@
       <workItem from="1594993404870" duration="13603000" />
       <workItem from="1595344256227" duration="11645000" />
       <workItem from="1595504445921" duration="3010000" />
+      <workItem from="1595673495513" duration="17250000" />
     </task>
     <servers />
   </component>
@@ -197,22 +204,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="500" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593369967252">
+    <state x="500" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595780010050">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="500" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593369967252" />
+    <state x="500" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595780010050" />
     <state x="550" y="172" key="FileChooserDialogImpl" timestamp="1593350026300">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="550" y="172" key="FileChooserDialogImpl/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593350026300" />
-    <state x="601" y="140" key="NewPhpClassDialog" timestamp="1593788355604">
+    <state x="601" y="140" key="NewPhpClassDialog" timestamp="1595843740839">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="601" y="140" key="NewPhpClassDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1593788355604" />
-    <state x="605" y="341" key="NewPhpFileDialog" timestamp="1595069870702">
+    <state x="601" y="140" key="NewPhpClassDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595843740839" />
+    <state x="605" y="341" key="NewPhpFileDialog" timestamp="1595843762984">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="605" y="341" key="NewPhpFileDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595069870702" />
+    <state x="605" y="341" key="NewPhpFileDialog/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595843762984" />
     <state x="279" y="62" key="SettingsEditor" timestamp="1593180010424">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -241,10 +248,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="203" y="38" key="new project wizard/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595254722341" />
-    <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1595506687971">
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup" timestamp="1595843981066">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595506687971" />
+    <state x="426" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.834/-1366.657.1366.738@0.0.1536.834" timestamp="1595843981066" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1595071566065">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

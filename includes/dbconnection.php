@@ -42,13 +42,22 @@ $socket = stream_socket_server("tcp://127.0.0.1:3306");
 //$sql = "SELECT id, firstname, lastname FROM MyGuests";
 //$result = $conn->query($sql);
 
-$con=mysqli_connect("localhost", "root", "", "fosdb");
+//$con=mysqli_connect("localhost", "root", "", "fosdb");
+//if(mysqli_connect_errno()) {
+//    echo "Connection Fail" . mysqli_connect_error();
+//}
+//else{
+//  echo "Connection Success";
+//}
+
+$con=mysqli_connect("deliveryjinidb.cwfo33eaalfp.us-east-1.rds.amazonaws.com", "admin",
+    "1996amine", "deliveryjinidb");
 if(mysqli_connect_errno()) {
     echo "Connection Fail" . mysqli_connect_error();
 }
-else{
-  echo "Connection Success";
-}
+//else{
+//    echo "Connection Success";
+//}
 
 //$sql = new mysqli('10.110.224.3',
 //    'amine', // username

@@ -1,4 +1,8 @@
 <?php
+use PayPal\Api\Payer;
+use PayPal\Api\Item;
+use PayPal\Api\ItemList;
+use PayPal\Api\Details;
 session_start();
 error_reporting(0);
 include_once('includes/dbconnection.php');
@@ -43,7 +47,9 @@ echo "<script>window.location.href='cart.php'</script>";
 
 }
 
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,8 +76,9 @@ echo "<script>window.location.href='cart.php'</script>";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
 </head>
 
+
 <body>
-<script src="https://www.paypal.com/sdk/js?client-id=AZef0lFFrH6QJywlIqzn-L9KbX2rgNmRf1ZhLN-C__83boVJJLkX_U_O_fdAUkDOAAu4kueT2guGz0QP"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AUijqvtUz6OyZaOUV2uLMhEt8nwpqbpZ0WcgC0ZkB-qjXzKh01KLg-sRonRgrxoezPYo_SAkQy3xnCpI"></script>
 <?php
     $driver_available = mysqli_fetch_array(mysqli_query($con,"select UID from tbldrivers where Available = 'Yes'"));
     $count_available = mysqli_fetch_array(mysqli_query($con, "select count(*) from tbldrivers where Available = 'Yes'"));
@@ -198,6 +205,19 @@ echo "<script>window.location.href='cart.php'</script>";
                         <!--/row -->
                     </div>
                     <!-- end:Bar -->
+<?php
+//use \PayPal\Api\Payer;
+require 'start.php';
+//$userid= $_GET['fosuid'];
+$payer = new \PayPal\Api\Payer();
+$payer->setPaymentMethod('paypal');
+
+$item = new Item();
+$item->setName('orderfood')->setCurrency('USD')->setQuantity(1)->setPrice($grandtotal);
+$details = new Details();
+$details->setSubtotal($grandtotal);
+
+?>
                     <?php if($num>0){?>
                         <form method="post">
                             <div class="col-xs-12 col-md-12 col-lg-3">
@@ -212,13 +232,20 @@ echo "<script>window.location.href='cart.php'</script>";
                                         <div class="order-row bg-white">
                                             <div class="widget-body">
 
+
                                                 <div class="form-group row no-gutter">
                                                     <div class="col-lg-12">
+                                                        <form id="form" action="checkout.php" method="get">
                                                         <input type="text" name="flatbldgnumber"  placeholder="Flat or Building Number" class="form-control" required="true">
                                                         <input type="text" name="streename" placeholder="Street Name" class="form-control" required="true">
                                                         <input type="text" name="area"  placeholder="Area" class="form-control" required="true">
                                                         <input type="text" name="landmark" placeholder="Landmark if any" class="form-control">
                                                         <input type="text" name="city" placeholder="City" class="form-control">
+                                                        <input type="hidden" name="grandtotal" value="<?php echo $grandtotal;?>">
+                                                        <input type="hidden" name="fosuid" value="<?php echo $userid?>">
+<!--                                                        <button type="submit">CLK</button>-->
+                                                        </form>
+                                                        <input type="submit" form="form">
                                                     </div>
                                                 </div>
                                             </div>
