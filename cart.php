@@ -78,7 +78,7 @@ echo "<script>window.location.href='cart.php'</script>";
 
 
 <body>
-<script src="https://www.paypal.com/sdk/js?client-id=AUijqvtUz6OyZaOUV2uLMhEt8nwpqbpZ0WcgC0ZkB-qjXzKh01KLg-sRonRgrxoezPYo_SAkQy3xnCpI"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AcrKa5by_qOjWh3qHpWXNlppqTNXQ4EXskK3v4-4DV_YT4cY3jUQiszuQxgzx7t6dzRstuZlCe_ndmAu"></script>
 <?php
     $driver_available = mysqli_fetch_array(mysqli_query($con,"select UID from tbldrivers where Available = 'Yes'"));
     $count_available = mysqli_fetch_array(mysqli_query($con, "select count(*) from tbldrivers where Available = 'Yes'"));
@@ -274,7 +274,7 @@ $details->setSubtotal($grandtotal);
                                                         return actions.order.create({
                                                             purchase_units: [{
                                                                 amount: {
-                                                                    value: '0.01'
+                                                                    value: '<?php echo $grandtotal; ?>'
                                                                 }
                                                             }]
                                                         });

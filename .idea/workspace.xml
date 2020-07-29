@@ -20,18 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="908a55e6-fd0b-4c40-9c85-d03ba0eb34dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/cart.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/listener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/start.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/dbconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/dbconnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/includes/dbconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/includes/dbconnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/dbconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dbconnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +31,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="DatabaseView">
@@ -64,6 +57,34 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpunit/phpunit-mock-objects" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/composer" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/PayPal-PHP-SDK-1.14.0/vendor/sebastian/version" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1drOfuV5a81EuoNrtUn2Oc6kXp3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -184,7 +205,8 @@
       <workItem from="1594993404870" duration="13603000" />
       <workItem from="1595344256227" duration="11645000" />
       <workItem from="1595504445921" duration="3010000" />
-      <workItem from="1595673495513" duration="17250000" />
+      <workItem from="1595673495513" duration="18441000" />
+      <workItem from="1595927010200" duration="5154000" />
     </task>
     <servers />
   </component>
